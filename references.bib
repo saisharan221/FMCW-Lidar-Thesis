@@ -1,0 +1,162 @@
+% ============================================================
+%  References for: Context-Aware Tangential Velocity Inference
+%  for FMCW LiDAR
+%  (uncited entries archived in references_archive.bib)
+% ============================================================
+
+% --- FMCW LiDAR principles ---
+
+@article{royo2019overview,
+  author  = {Santiago Royo and Maria Ballesta-Garcia},
+  title   = {An Overview of Lidar Imaging Systems for Autonomous Vehicles},
+  journal = {Applied Sciences},
+  volume  = {9},
+  number  = {19},
+  pages   = {4093},
+  year    = {2019},
+  doi     = {10.3390/app9194093}
+}
+
+% --- Doppler observability (load-bearing motivation) ---
+
+@inproceedings{yoon2023needforspeed,
+  author    = {David J. Yoon and Keenan Burnett and Jingxing Qian and Yuchen Wu and Timothy D. Barfoot},
+  title     = {Need for Speed: Fast Correspondence-Free Lidar-Inertial Odometry Using {Doppler} Velocity},
+  booktitle = {Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  year      = {2023}
+}
+
+% --- Dataset ---
+
+@misc{aeva2025aevascenes,
+  author    = {{Aeva, Inc.}},
+  title     = {{AevaScenes}: The First Open-Access {FMCW} {4D} {LiDAR} and Camera Dataset for Autonomous Vehicle Research},
+  year      = {2025},
+  howpublished = {\url{https://scenes.aeva.com}},
+  note      = {Accessed: April 2026}
+}
+
+% --- RQ2 multi-frame scene flow baselines ---
+
+@article{cho2025flow4d,
+  author    = {Jaeyeul Kim and Jungwan Woo and Ukcheol Shin and Jean Oh and Sunghoon Im},
+  title     = {{Flow4D}: Leveraging {4D} Voxel Network for {LiDAR} Scene Flow Estimation},
+  journal   = {IEEE Robotics and Automation Letters},
+  year      = {2025},
+  note      = {arXiv:2407.07995}
+}
+
+@inproceedings{zhang2025deltaflow,
+  author    = {Qingwen Zhang and others},
+  title     = {{DeltaFlow}: An Efficient Multi-frame Scene Flow Estimation Method},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025}
+}
+
+% --- Closest antecedent: Doppler-guided self-supervised scene flow ---
+
+@article{khoche2026dogflow,
+  author    = {Ajinkya Khoche and Qingwen Zhang and Yixi Cai and Sina Sharif Mansouri and Patric Jensfelt},
+  title     = {{DoGFlow}: Self-Supervised {LiDAR} Scene Flow via Cross-Modal {Doppler} Guidance},
+  journal   = {IEEE Robotics and Automation Letters (RA-L)},
+  year      = {2026}
+}
+
+% --- Closest velocity-recovery work: multi-sensor ceiling ---
+
+@article{zhou2025carliv,
+  author    = {Landson Guo and Andres M. Diaz Aguilar and William Talbot and Turcan Tuna and Marco Hutter and Cesar Cadena},
+  title     = {{CaRLi-V}: Camera-{RADAR}-{LiDAR} Point-Wise {3D} Velocity Estimation},
+  journal   = {IEEE Robotics and Automation Practice},
+  year      = {2025},
+  note      = {arXiv:2511.01383}
+}
+
+% --- Research methodology ---
+
+@article{peffers2007ds,
+  author  = {Ken Peffers and Tuure Tuunanen and Marcus A. Rothenberger and Samir Chatterjee},
+  title   = {A Design Science Research Methodology for Information Systems Research},
+  journal = {Journal of Management Information Systems},
+  volume  = {24},
+  number  = {3},
+  pages   = {45--77},
+  year    = {2007},
+  doi     = {10.2753/MIS0742-1222240302}
+}
+
+% --- Single-frame Doppler ML perception ---
+
+@inproceedings{dopplerptnet2024,
+  author    = {Jiaqi Gao and Wuping Zhou and Xiaozhi Wang},
+  title     = {{DopplerPTNet}: Object Detection Network with {Doppler} Velocity Information for {FMCW} {LiDAR} Point Cloud},
+  booktitle = {Journal of Physics: Conference Series},
+  volume    = {2809},
+  year      = {2024}
+}
+
+@article{pod2025,
+  author    = {Yining Shi and Kun Jiang and Xin Zhao and Kangan Qian and Chuchu Xie and Tuopu Wen and Mengmeng Yang and Diange Yang},
+  title     = {{POD}: Predictive Object Detection with Single-Frame {FMCW} {LiDAR} Point Cloud},
+  journal   = {arXiv preprint arXiv:2504.05649},
+  year      = {2025}
+}
+
+% --- Non-learning velocity-recovery baseline (evaluated on AevaScenes) ---
+
+@article{dynamicicp2025,
+  author    = {Dong Wang and Daniel Casado Herraez and Stefan May and Andreas N{\"u}chter},
+  title     = {{Dynamic-ICP}: Doppler-Aware Iterative Closest Point Registration for Dynamic Scenes},
+  journal   = {arXiv preprint arXiv:2511.20292},
+  year      = {2025}
+}
+
+% --- Backbone architecture ---
+
+@inproceedings{wu2024pointtransformerv3,
+  author    = {Xiaoyang Wu and Li Jiang and Peng-Shuai Wang and Zhijian Liu and Xihui Liu and Yu Qiao and Wanli Ouyang and Tong He and Hengshuang Zhao},
+  title     = {Point Transformer {V3}: Simpler, Faster, Stronger},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2024}
+}
+
+% --- Dataset comparison table (§3.6) ---
+
+@inproceedings{wilson2023argoverse2,
+  author    = {Benjamin Wilson and others},
+  title     = {Argoverse 2: Next Generation Datasets for Self-Driving Perception and Forecasting},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2023}
+}
+
+@inproceedings{sun2020waymo,
+  author    = {Pei Sun and others},
+  title     = {Scalability in Perception for Autonomous Driving: {Waymo} Open Dataset},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages     = {2446--2454},
+  year      = {2020}
+}
+
+@article{palffy2022vod,
+  author    = {Andras Palffy and Ewoud Pool and Saber Babaians and Julian F.P. Kooij and Dariu M. Gavrila},
+  title     = {Multi-Class Road User Detection with {3+1D} Radar in the {View-of-Delft} Dataset},
+  journal   = {IEEE Robotics and Automation Letters (RA-L)},
+  year      = {2022},
+  doi       = {10.1109/LRA.2022.3147324}
+}
+
+@article{jung2024helipr,
+  author    = {Minwoo Jung and Wooseong Yang and Dongjae Lee and Hyeonjae Gil and Giseop Kim and Ayoung Kim},
+  title     = {{HeLiPR}: Heterogeneous {LiDAR} Dataset for inter-{LiDAR} Place Recognition under Spatiotemporal Variations},
+  journal   = {The International Journal of Robotics Research},
+  volume    = {43},
+  number    = {12},
+  year      = {2024}
+}
+
+@inproceedings{alibeigi2023zod,
+  author    = {Mina Alibeigi and others},
+  title     = {Zenseact Open Dataset: A Large-Scale Multi-Modal Dataset for Autonomous Driving},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  year      = {2023}
+}

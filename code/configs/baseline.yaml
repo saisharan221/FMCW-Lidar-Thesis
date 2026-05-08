@@ -1,0 +1,30 @@
+# Baseline-algorithms eval config (spec §13).
+
+data:
+  # AEVASCENES_ROOT env var overrides this; default points at the repo's
+  # in-tree dataset directory so the eval works without env setup.
+  root: ${oc.env:AEVASCENES_ROOT, data/aevascenes_v0.2}
+  lidar: front_wide_lidar
+  splits_file: code/configs/splits.json
+
+dataloader:
+  num_workers: 8
+  batch_size: 1                    # one frame at a time; baselines aren't batched
+  prefetch_factor: 2
+
+eval:
+  dynamic_threshold: 0.5           # m/s
+  ranges_m: [0, 25, 50, 75]        # bucket edges; final bucket is [75, inf)
+  speed_buckets_mps: [0.5, 5, 15, 25]
+  ratio_buckets: [0, 0.5, 1, 2, 5, 10]
+  classes_top_k: 10
+
+baselines:
+  num_classes: 25                  # AevaScenes per-point semantic classes
+
+output:
+  frozen_test_root: frozen_test
+  # 'positive_recedes' is verified for AevaScenes v0.2 (spec §8.2 R3,
+  # changelog 2026-05-05). Flip to 'positive_approaches' only if the
+  # B1 sign-check banner reports inverted residuals.
+  v_radial_sign: positive_recedes

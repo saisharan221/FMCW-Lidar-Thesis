@@ -1,0 +1,119 @@
+{
+  "n_records": 24199,
+  "by_class": {
+    "car": {
+      "n_boxes_sampled": 20325,
+      "median_range_m": 72.6171291520725,
+      "median_points": 44.0,
+      "mean_points": 501.61746617466173,
+      "frac_empty": 0.11503075030750308,
+      "frac_ge10": 0.7319065190651907,
+      "frac_ge50": 0.48034440344403445
+    },
+    "bus": {
+      "n_boxes_sampled": 249,
+      "median_range_m": 117.325542731645,
+      "median_points": 165.0,
+      "mean_points": 2201.6586345381525,
+      "frac_empty": 0.08433734939759036,
+      "frac_ge10": 0.8273092369477911,
+      "frac_ge50": 0.6827309236947792
+    },
+    "pedestrian": {
+      "n_boxes_sampled": 2289,
+      "median_range_m": 40.908117758703554,
+      "median_points": 102.0,
+      "mean_points": 232.78899082568807,
+      "frac_empty": 0.00436871996505024,
+      "frac_ge10": 0.9231105286151158,
+      "frac_ge50": 0.6832678025338575
+    },
+    "other_vehicle": {
+      "n_boxes_sampled": 82,
+      "median_range_m": 59.8369365379325,
+      "median_points": 108.0,
+      "mean_points": 795.2317073170732,
+      "frac_empty": 0.04878048780487805,
+      "frac_ge10": 0.8536585365853658,
+      "frac_ge50": 0.6097560975609756
+    },
+    "bicycle": {
+      "n_boxes_sampled": 318,
+      "median_range_m": 37.85789902256647,
+      "median_points": 52.0,
+      "mean_points": 110.38050314465409,
+      "frac_empty": 0.025157232704402517,
+      "frac_ge10": 0.9213836477987422,
+      "frac_ge50": 0.5283018867924528
+    },
+    "truck": {
+      "n_boxes_sampled": 635,
+      "median_range_m": 119.99326580561977,
+      "median_points": 118.0,
+      "mean_points": 946.3354330708661,
+      "frac_empty": 0.08818897637795275,
+      "frac_ge10": 0.8267716535433071,
+      "frac_ge50": 0.6519685039370079
+    },
+    "trailer": {
+      "n_boxes_sampled": 96,
+      "median_range_m": 82.39761883253595,
+      "median_points": 150.5,
+      "mean_points": 2053.3229166666665,
+      "frac_empty": 0.1875,
+      "frac_ge10": 0.7708333333333334,
+      "frac_ge50": 0.6458333333333334
+    },
+    "motorcycle": {
+      "n_boxes_sampled": 41,
+      "median_range_m": 86.75596919058798,
+      "median_points": 40.0,
+      "mean_points": 92.21951219512195,
+      "frac_empty": 0.1951219512195122,
+      "frac_ge10": 0.7317073170731707,
+      "frac_ge50": 0.4634146341463415
+    },
+    "motorcyclist": {
+      "n_boxes_sampled": 17,
+      "median_range_m": 55.23267002187637,
+      "median_points": 4.0,
+      "mean_points": 111.94117647058823,
+      "frac_empty": 0.4117647058823529,
+      "frac_ge10": 0.4117647058823529,
+      "frac_ge50": 0.29411764705882354
+    },
+    "bicyclist": {
+      "n_boxes_sampled": 103,
+      "median_range_m": 44.91781909914068,
+      "median_points": 77.0,
+      "mean_points": 247.49514563106797,
+      "frac_empty": 0.0970873786407767,
+      "frac_ge10": 0.8349514563106796,
+      "frac_ge50": 0.6213592233009708
+    },
+    "vehicle_on_rails": {
+      "n_boxes_sampled": 29,
+      "median_range_m": 39.559916346488976,
+      "median_points": 2482.0,
+      "mean_points": 14673.827586206897,
+      "frac_empty": 0.0,
+      "frac_ge10": 0.9310344827586207,
+      "frac_ge50": 0.896551724137931
+    },
+    "animal": {
+      "n_boxes_sampled": 15,
+      "median_range_m": 53.95301586040316,
+      "median_points": 48.0,
+      "mean_points": 53.06666666666667,
+      "frac_empty": 0.13333333333333333,
+      "frac_ge10": 0.6,
+      "frac_ge50": 0.4666666666666667
+    }
+  },
+  "global": {
+    "median_points": 52.0,
+    "mean_points": 522.0177280052894,
+    "frac_empty": 0.10256622174470019,
+    "frac_ge10": 0.7568907806107691
+  }
+}

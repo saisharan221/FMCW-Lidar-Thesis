@@ -1,0 +1,33 @@
+data:
+  root: data/aevascenes_v0.2
+  lidar: front_wide_lidar
+  splits_file: code/configs/splits.json
+dataloader:
+  num_workers: 8
+  batch_size: 1
+  prefetch_factor: 2
+eval:
+  dynamic_threshold: 0.5
+  ranges_m:
+  - 0
+  - 25
+  - 50
+  - 75
+  speed_buckets_mps:
+  - 0.5
+  - 5
+  - 15
+  - 25
+  ratio_buckets:
+  - 0
+  - 0.5
+  - 1
+  - 2
+  - 5
+  - 10
+  classes_top_k: 10
+baselines:
+  num_classes: 25
+output:
+  frozen_test_root: frozen_test
+  v_radial_sign: positive_recedes

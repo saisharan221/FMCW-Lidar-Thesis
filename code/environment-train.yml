@@ -1,0 +1,36 @@
+name: ptv3-fmcw-train
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - pyyaml
+  - tqdm
+  - pytest
+  - pytest-cov
+  - pytorch=2.4
+  - pytorch-cuda=12.1
+  - torchvision
+  # Pointcept dependencies — see code/Pointcept/README.md after submodule init
+  - addict
+  - einops
+  - timm
+  - sharedarray
+  - tensorboard
+  - tensorboardx
+  - yapf
+  - termcolor
+  - pip:
+      - omegaconf
+      - wandb
+      # Install flash-attn AFTER torch+cuda are present:
+      #   pip install flash-attn==2.6.3 --no-build-isolation
+      # spconv (used by Pointcept):
+      #   pip install spconv-cu120

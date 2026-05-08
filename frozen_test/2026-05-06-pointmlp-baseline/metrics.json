@@ -1,0 +1,2215 @@
+{
+  "split": "val",
+  "n_frames": 1400,
+  "checkpoint": "checkpoints\\pointmlp_full\\best.pt",
+  "checkpoint_epoch": 4,
+  "checkpoint_best_val": 8.210537992589412,
+  "git_commit_at_eval": "42c48306447d827eaa697aabc35c9c2bd86155d5",
+  "baselines": {
+    "PointMLP_FMCW": {
+      "overall": {
+        "epe_all": 0.018243065652941808,
+        "epe_dyn": 8.210518676906954,
+        "epe_bg": 0.0035021943947982975,
+        "epe_t": 3.135975180520136,
+        "epe_r": 7.248770229765387,
+        "ang_dyn_deg": 38.574785939055275,
+        "mag_err_dyn": 8.209685404595799,
+        "n_pts_total": 118981343,
+        "n_dyn_total": 213706
+      },
+      "per_class": {
+        "unknown": {
+          "epe_all": 0.09195313994119597,
+          "epe_dyn": 9.302313436975124,
+          "epe_bg": 0.008803428652880195,
+          "epe_t": 3.880632780291337,
+          "epe_r": 8.199074706481388,
+          "ang_dyn_deg": 30.28901803862302,
+          "mag_err_dyn": 9.301704371504748,
+          "n_pts_total": 2882507,
+          "n_dyn_total": 25790
+        },
+        "car": {
+          "epe_all": 0.06544660709014867,
+          "epe_dyn": 15.820449797153644,
+          "epe_bg": 0.04823547267706456,
+          "epe_t": 9.903361499068392,
+          "epe_r": 11.989148588438628,
+          "ang_dyn_deg": 25.02677957276975,
+          "mag_err_dyn": 15.819694664922011,
+          "n_pts_total": 2545748,
+          "n_dyn_total": 2778
+        },
+        "bus": {
+          "epe_all": 4.4630657909345635,
+          "epe_dyn": 21.64079328062673,
+          "epe_bg": 0.0019317605170462574,
+          "epe_t": 11.70985052124597,
+          "epe_r": 17.913013412342817,
+          "ang_dyn_deg": 25.61184097093249,
+          "mag_err_dyn": 21.640699003108594,
+          "n_pts_total": 7334,
+          "n_dyn_total": 1512
+        },
+        "truck": {
+          "epe_all": 0.9043276240103506,
+          "epe_dyn": 8.423637348634292,
+          "epe_bg": 0.08042903427207727,
+          "epe_t": 1.7303350388639402,
+          "epe_r": 8.045253354248008,
+          "ang_dyn_deg": 17.70598522600681,
+          "mag_err_dyn": 8.422994013781873,
+          "n_pts_total": 662830,
+          "n_dyn_total": 65455
+        },
+        "trailer": {
+          "epe_all": 2.238374037038414,
+          "epe_dyn": 7.751316766216246,
+          "epe_bg": 0.11959633664098902,
+          "epe_t": 3.334933559564077,
+          "epe_r": 6.779201184925668,
+          "ang_dyn_deg": 35.234252932363624,
+          "mag_err_dyn": 7.750293449808527,
+          "n_pts_total": 278542,
+          "n_dyn_total": 77331
+        },
+        "vehicle_on_rails": {
+          "epe_all": 0.41379935345444957,
+          "epe_dyn": 5.077086930231911,
+          "epe_bg": 0.001076398403549334,
+          "epe_t": 3.6107845164351957,
+          "epe_r": 3.523882190166604,
+          "ang_dyn_deg": 71.36772943062815,
+          "mag_err_dyn": 5.0763599384831215,
+          "n_pts_total": 223396,
+          "n_dyn_total": 18164
+        },
+        "bicycle": {
+          "epe_all": 0.0010108317764319589,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0010108317764319589,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1096,
+          "n_dyn_total": 0
+        },
+        "class_8": {
+          "epe_all": 0.06513057599681639,
+          "epe_dyn": NaN,
+          "epe_bg": 0.06513057599681639,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 129,
+          "n_dyn_total": 0
+        },
+        "pedestrian": {
+          "epe_all": 0.002611313379727772,
+          "epe_dyn": NaN,
+          "epe_bg": 0.002611313379727772,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 436655,
+          "n_dyn_total": 0
+        },
+        "class_11": {
+          "epe_all": 0.10995583535763077,
+          "epe_dyn": NaN,
+          "epe_bg": 0.10995583535763077,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 390,
+          "n_dyn_total": 0
+        },
+        "bicyclist": {
+          "epe_all": 0.001195175401504021,
+          "epe_dyn": NaN,
+          "epe_bg": 0.001195175401504021,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1768,
+          "n_dyn_total": 0
+        },
+        "traffic_item": {
+          "epe_all": 0.0010480291692101383,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0010480291692101383,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 148611,
+          "n_dyn_total": 0
+        },
+        "traffic_sign": {
+          "epe_all": 0.006970442418990872,
+          "epe_dyn": 6.9050620798569,
+          "epe_bg": 0.0020779237653253016,
+          "epe_t": 1.2412875284240308,
+          "epe_r": 6.378630934328853,
+          "ang_dyn_deg": 100.9226545096512,
+          "mag_err_dyn": 6.904182818574718,
+          "n_pts_total": 1574594,
+          "n_dyn_total": 1116
+        },
+        "pole_trunk": {
+          "epe_all": 0.006097372622073799,
+          "epe_dyn": 4.625485146425054,
+          "epe_bg": 0.004285854153976541,
+          "epe_t": 1.1527900403008287,
+          "epe_r": 4.283601516574919,
+          "ang_dyn_deg": 110.08834616703093,
+          "mag_err_dyn": 4.624187369679296,
+          "n_pts_total": 4168348,
+          "n_dyn_total": 1634
+        },
+        "building": {
+          "epe_all": 0.0029150994447672547,
+          "epe_dyn": 3.0316252804485107,
+          "epe_bg": 0.0017820672509987821,
+          "epe_t": 0.9534395270316838,
+          "epe_r": 2.833390406872942,
+          "ang_dyn_deg": 64.28222049024023,
+          "mag_err_dyn": 3.030861568606543,
+          "n_pts_total": 24377110,
+          "n_dyn_total": 9116
+        },
+        "other_structure": {
+          "epe_all": 0.0018602207140654735,
+          "epe_dyn": 11.139484569797776,
+          "epe_bg": 0.0010566929469467737,
+          "epe_t": 1.0703803958417066,
+          "epe_r": 10.655010194805609,
+          "ang_dyn_deg": 53.851988964823825,
+          "mag_err_dyn": 11.1389514632421,
+          "n_pts_total": 10119193,
+          "n_dyn_total": 730
+        },
+        "vegetation": {
+          "epe_all": 0.006430302105779159,
+          "epe_dyn": 13.536869777021751,
+          "epe_bg": 0.002458485391095037,
+          "epe_t": 7.570408593328896,
+          "epe_r": 10.576644543066282,
+          "ang_dyn_deg": 124.08742692498211,
+          "mag_err_dyn": 13.53536749587906,
+          "n_pts_total": 33745584,
+          "n_dyn_total": 9903
+        },
+        "road": {
+          "epe_all": 0.0010754679683886111,
+          "epe_dyn": 50.969464428019975,
+          "epe_bg": 0.0009652803141478628,
+          "epe_t": 1.1537851361629035,
+          "epe_r": 50.880937194309816,
+          "ang_dyn_deg": 146.58510732425833,
+          "mag_err_dyn": 50.96768237959664,
+          "n_pts_total": 24515725,
+          "n_dyn_total": 53
+        },
+        "lane_boundary": {
+          "epe_all": 0.0037594726619704514,
+          "epe_dyn": 58.67060477158119,
+          "epe_bg": 0.0009467081173604026,
+          "epe_t": 1.9370007341863285,
+          "epe_r": 58.634580252764565,
+          "ang_dyn_deg": 160.54666006154028,
+          "mag_err_dyn": 58.66863474352606,
+          "n_pts_total": 1209785,
+          "n_dyn_total": 58
+        },
+        "road_marking": {
+          "epe_all": 0.0010285576431588769,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0010285576431588769,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 851997,
+          "n_dyn_total": 0
+        },
+        "reflective_marker": {
+          "epe_all": 0.000991276238460999,
+          "epe_dyn": NaN,
+          "epe_bg": 0.000991276238460999,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 28970,
+          "n_dyn_total": 0
+        },
+        "sidewalk": {
+          "epe_all": 0.001550768872925297,
+          "epe_dyn": 62.70303289240057,
+          "epe_bg": 0.0009892496297689848,
+          "epe_t": 3.0924402264957336,
+          "epe_r": 62.62505170383156,
+          "ang_dyn_deg": 160.0137656471946,
+          "mag_err_dyn": 62.701064786044036,
+          "n_pts_total": 6141575,
+          "n_dyn_total": 55
+        },
+        "other_ground": {
+          "epe_all": 0.0009651547553963711,
+          "epe_dyn": 37.554643804376774,
+          "epe_bg": 0.000883507366127818,
+          "epe_t": 7.63980727444287,
+          "epe_r": 36.479661477723866,
+          "ang_dyn_deg": 159.02188110351562,
+          "mag_err_dyn": 37.55268027565696,
+          "n_pts_total": 5059456,
+          "n_dyn_total": 11
+        }
+      },
+      "per_range_m": {
+        "0-25": {
+          "epe_all": 0.008514879425926068,
+          "epe_dyn": 3.9967222790072228,
+          "epe_bg": 0.004859027587860178,
+          "epe_t": 2.6733519113580746,
+          "epe_r": 2.9181943173020564,
+          "ang_dyn_deg": 57.82310464902938,
+          "mag_err_dyn": 3.9961847597203612,
+          "n_pts_total": 48087742,
+          "n_dyn_total": 44040
+        },
+        "25-50": {
+          "epe_all": 0.022408032608987157,
+          "epe_dyn": 7.186776127434249,
+          "epe_bg": 0.0029460340994127833,
+          "epe_t": 2.845655106225776,
+          "epe_r": 6.151282137248709,
+          "ang_dyn_deg": 27.519624643343498,
+          "mag_err_dyn": 7.186379420284096,
+          "n_pts_total": 41492141,
+          "n_dyn_total": 112408
+        },
+        "50-75": {
+          "epe_all": 0.04037060105913914,
+          "epe_dyn": 14.226067345915059,
+          "epe_bg": 0.0023808663867110726,
+          "epe_t": 4.519676933299883,
+          "epe_r": 13.416075292468138,
+          "ang_dyn_deg": 33.92083770605471,
+          "mag_err_dyn": 14.22381848512713,
+          "n_pts_total": 16420816,
+          "n_dyn_total": 43858
+        },
+        "75-inf": {
+          "epe_all": 0.012976835098001455,
+          "epe_dyn": 10.958466468724742,
+          "epe_bg": 0.0016660615117361258,
+          "epe_t": 2.5629778828905976,
+          "epe_r": 10.502452263234227,
+          "ang_dyn_deg": 83.28414986025292,
+          "mag_err_dyn": 10.957633388767492,
+          "n_pts_total": 12980644,
+          "n_dyn_total": 13400
+        }
+      },
+      "per_speed_mps": {
+        "0.5-5": {
+          "epe_all": NaN,
+          "epe_dyn": 1.2679934990623907,
+          "epe_bg": NaN,
+          "epe_t": 0.6554594238391169,
+          "epe_r": 0.9825831985947473,
+          "ang_dyn_deg": 58.47809222012102,
+          "mag_err_dyn": 1.2674654510918757,
+          "n_pts_total": 0,
+          "n_dyn_total": 68066
+        },
+        "5-15": {
+          "epe_all": NaN,
+          "epe_dyn": 7.528257137570165,
+          "epe_bg": NaN,
+          "epe_t": 2.880337152683253,
+          "epe_r": 6.541908215396242,
+          "ang_dyn_deg": 25.001816810842943,
+          "mag_err_dyn": 7.527905631824674,
+          "n_pts_total": 0,
+          "n_dyn_total": 112693
+        },
+        "15-25": {
+          "epe_all": NaN,
+          "epe_dyn": 23.115718347399113,
+          "epe_bg": NaN,
+          "epe_t": 7.747213229131527,
+          "epe_r": 21.556286433312835,
+          "ang_dyn_deg": 29.49303994932726,
+          "mag_err_dyn": 23.11231465470651,
+          "n_pts_total": 0,
+          "n_dyn_total": 26683
+        },
+        "25-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 32.431555225474625,
+          "epe_bg": NaN,
+          "epe_t": 15.046214151493105,
+          "epe_r": 27.10912026005058,
+          "ang_dyn_deg": 105.17254980919004,
+          "mag_err_dyn": 32.42968789371037,
+          "n_pts_total": 0,
+          "n_dyn_total": 6264
+        }
+      },
+      "per_tangential_ratio": {
+        "0-0.5": {
+          "epe_all": NaN,
+          "epe_dyn": 11.643880595011352,
+          "epe_bg": NaN,
+          "epe_t": 2.638383904311921,
+          "epe_r": 11.239307261219999,
+          "ang_dyn_deg": 23.096526835011176,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 96756
+        },
+        "0.5-1": {
+          "epe_all": NaN,
+          "epe_dyn": 5.248730685955635,
+          "epe_bg": NaN,
+          "epe_t": 3.1509084702311387,
+          "epe_r": 4.169565132990502,
+          "ang_dyn_deg": 45.181517430828755,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 74820
+        },
+        "1-2": {
+          "epe_all": NaN,
+          "epe_dyn": 7.483465036795999,
+          "epe_bg": NaN,
+          "epe_t": 5.62985892259219,
+          "epe_r": 4.912987480743863,
+          "ang_dyn_deg": 53.69006945341161,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 30216
+        },
+        "2-5": {
+          "epe_all": NaN,
+          "epe_dyn": 0.738725098398211,
+          "epe_bg": NaN,
+          "epe_t": 0.6968828633501919,
+          "epe_r": 0.23694070090381036,
+          "ang_dyn_deg": 92.11552249003195,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 3214
+        },
+        "5-10": {
+          "epe_all": NaN,
+          "epe_dyn": 0.6525540568367647,
+          "epe_bg": NaN,
+          "epe_t": 0.6460489586539873,
+          "epe_r": 0.0898782817487396,
+          "ang_dyn_deg": 86.66166133975166,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 2219
+        },
+        "10-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 0.8281185319146669,
+          "epe_bg": NaN,
+          "epe_t": 0.8268736985894329,
+          "epe_r": 0.03985366250413964,
+          "ang_dyn_deg": 79.86718152975881,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 6438
+        }
+      },
+      "per_scene": {
+        "unknown": {
+          "epe_all": 0.018243065652941808,
+          "epe_dyn": 8.210518676906954,
+          "epe_bg": 0.0035021943947982975,
+          "epe_t": 3.135975180520136,
+          "epe_r": 7.248770229765387,
+          "ang_dyn_deg": 38.574785939055275,
+          "mag_err_dyn": 8.209685404595799,
+          "n_pts_total": 118981343,
+          "n_dyn_total": 213706
+        }
+      }
+    },
+    "B0_zero": {
+      "overall": {
+        "epe_all": 0.016013092723480643,
+        "epe_dyn": 8.245948365338199,
+        "epe_bg": 0.0012044580147429283,
+        "epe_t": 3.1375739575144888,
+        "epe_r": 7.284371946877257,
+        "ang_dyn_deg": NaN,
+        "mag_err_dyn": 8.245948365338199,
+        "n_pts_total": 118981343,
+        "n_dyn_total": 213706
+      },
+      "per_class": {
+        "unknown": {
+          "epe_all": 0.08454162705035366,
+          "epe_dyn": 9.321515730299566,
+          "epe_bg": 0.0011516513501337942,
+          "epe_t": 3.8821462338048907,
+          "epe_r": 8.218392168171093,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 9.321515730299566,
+          "n_pts_total": 2882507,
+          "n_dyn_total": 25790
+        },
+        "car": {
+          "epe_all": 0.02398278023355542,
+          "epe_dyn": 15.87918520074598,
+          "epe_bg": 0.0066621859285049215,
+          "epe_t": 9.947121023054695,
+          "epe_r": 12.027579799293052,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 15.87918520074598,
+          "n_pts_total": 2545748,
+          "n_dyn_total": 2778
+        },
+        "bus": {
+          "epe_all": 4.461709880490767,
+          "epe_dyn": 21.64165458981953,
+          "epe_bg": 0.0,
+          "epe_t": 11.70997629513571,
+          "epe_r": 17.913945566283665,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 21.64165458981953,
+          "n_pts_total": 7334,
+          "n_dyn_total": 1512
+        },
+        "truck": {
+          "epe_all": 0.8642991448460539,
+          "epe_dyn": 8.50336962013574,
+          "epe_bg": 0.02727824865545681,
+          "epe_t": 1.7318335100668703,
+          "epe_r": 8.125229821451795,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 8.50336962013574,
+          "n_pts_total": 662830,
+          "n_dyn_total": 65455
+        },
+        "trailer": {
+          "epe_all": 2.2253201357641705,
+          "epe_dyn": 7.773168780269658,
+          "epe_bg": 0.09312717805530313,
+          "epe_t": 3.3361063033395144,
+          "epe_r": 6.801908569106203,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 7.773168780269658,
+          "n_pts_total": 278542,
+          "n_dyn_total": 77331
+        },
+        "vehicle_on_rails": {
+          "epe_all": 0.41283820477972166,
+          "epe_dyn": 5.077428173005542,
+          "epe_bg": 0.0,
+          "epe_t": 3.6103250572551113,
+          "epe_r": 3.5248394802508516,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 5.077428173005542,
+          "n_pts_total": 223396,
+          "n_dyn_total": 18164
+        },
+        "bicycle": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1096,
+          "n_dyn_total": 0
+        },
+        "class_8": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 129,
+          "n_dyn_total": 0
+        },
+        "pedestrian": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 436655,
+          "n_dyn_total": 0
+        },
+        "class_11": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 390,
+          "n_dyn_total": 0
+        },
+        "bicyclist": {
+          "epe_all": 0.00020667042359878306,
+          "epe_dyn": NaN,
+          "epe_bg": 0.00020667042359878306,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1768,
+          "n_dyn_total": 0
+        },
+        "traffic_item": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 148611,
+          "n_dyn_total": 0
+        },
+        "traffic_sign": {
+          "epe_all": 0.005978224809266087,
+          "epe_dyn": 6.904944152013803,
+          "epe_bg": 0.0010850862651542218,
+          "epe_t": 1.2414529126000282,
+          "epe_r": 6.378578537784688,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 6.904944152013803,
+          "n_pts_total": 1574594,
+          "n_dyn_total": 1116
+        },
+        "pole_trunk": {
+          "epe_all": 0.005131715686954906,
+          "epe_dyn": 4.625142364526758,
+          "epe_bg": 0.0033199528775825584,
+          "epe_t": 1.1527807370797278,
+          "epe_r": 4.283033682230545,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 4.625142364526758,
+          "n_pts_total": 4168348,
+          "n_dyn_total": 1634
+        },
+        "building": {
+          "epe_all": 0.001935905433955216,
+          "epe_dyn": 3.031883488299293,
+          "epe_bg": 0.0008024103228242933,
+          "epe_t": 0.9536760651219104,
+          "epe_r": 2.8334520916354196,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 3.031883488299293,
+          "n_pts_total": 24377110,
+          "n_dyn_total": 9116
+        },
+        "other_structure": {
+          "epe_all": 0.0009133994037476359,
+          "epe_dyn": 11.139899277768723,
+          "epe_bg": 0.00010977346230564214,
+          "epe_t": 1.0710801481925536,
+          "epe_r": 10.654839759563732,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 11.139899277768723,
+          "n_pts_total": 10119193,
+          "n_dyn_total": 730
+        },
+        "vegetation": {
+          "epe_all": 0.005500744435976918,
+          "epe_dyn": 13.536378612810104,
+          "epe_bg": 0.0015287990413807035,
+          "epe_t": 7.570165367167719,
+          "epe_r": 10.57607991984084,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 13.536378612810104,
+          "n_pts_total": 33745584,
+          "n_dyn_total": 9903
+        },
+        "road": {
+          "epe_all": 0.00011022809955297013,
+          "epe_dyn": 50.9686864636979,
+          "epe_bg": 4.002752951317756e-08,
+          "epe_t": 1.1537161792517403,
+          "epe_r": 50.88016425079715,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 50.9686864636979,
+          "n_pts_total": 24515725,
+          "n_dyn_total": 53
+        },
+        "lane_boundary": {
+          "epe_all": 0.0028127639741435282,
+          "epe_dyn": 58.66965043955836,
+          "epe_bg": 0.0,
+          "epe_t": 1.9373079329336864,
+          "epe_r": 58.63361391125819,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 58.66965043955836,
+          "n_pts_total": 1209785,
+          "n_dyn_total": 58
+        },
+        "road_marking": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 851997,
+          "n_dyn_total": 0
+        },
+        "reflective_marker": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 28970,
+          "n_dyn_total": 0
+        },
+        "sidewalk": {
+          "epe_all": 0.0005622438278369703,
+          "epe_dyn": 62.702079356800425,
+          "epe_bg": 7.242751392986502e-07,
+          "epe_t": 3.09274020097098,
+          "epe_r": 62.62408215149202,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 62.702079356800425,
+          "n_pts_total": 6141575,
+          "n_dyn_total": 55
+        },
+        "other_ground": {
+          "epe_all": 8.164724675257978e-05,
+          "epe_dyn": 37.55369498512962,
+          "epe_bg": 0.0,
+          "epe_t": 7.639572464360994,
+          "epe_r": 36.47870819829051,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 37.55369498512962,
+          "n_pts_total": 5059456,
+          "n_dyn_total": 11
+        }
+      },
+      "per_range_m": {
+        "0-25": {
+          "epe_all": 0.005184506987176447,
+          "epe_dyn": 4.000339105799727,
+          "epe_bg": 0.001522286863453307,
+          "epe_t": 2.6755251350684848,
+          "epe_r": 2.9210059061789484,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 4.000339105799727,
+          "n_pts_total": 48087742,
+          "n_dyn_total": 44040
+        },
+        "25-50": {
+          "epe_all": 0.020884159537261617,
+          "epe_dyn": 7.231997195810226,
+          "epe_bg": 0.001295178488428085,
+          "epe_t": 2.84678188869838,
+          "epe_r": 6.196453405911018,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 7.231997195810226,
+          "n_pts_total": 41492141,
+          "n_dyn_total": 112408
+        },
+        "50-75": {
+          "epe_all": 0.03883061221303622,
+          "epe_dyn": 14.279104589705177,
+          "epe_bg": 0.0006947177788688746,
+          "epe_t": 4.52243863531598,
+          "epe_r": 13.47087879274261,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 14.279104589705177,
+          "n_pts_total": 16420816,
+          "n_dyn_total": 43858
+        },
+        "75-inf": {
+          "epe_all": 0.011693504982617049,
+          "epe_dyn": 10.958686134059038,
+          "epe_bg": 0.0003811783002205299,
+          "epe_t": 2.562841865946262,
+          "epe_r": 10.50269810652813,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 10.958686134059038,
+          "n_pts_total": 12980644,
+          "n_dyn_total": 13400
+        }
+      },
+      "per_speed_mps": {
+        "0.5-5": {
+          "epe_all": NaN,
+          "epe_dyn": 1.2684117739836973,
+          "epe_bg": NaN,
+          "epe_t": 0.6554062328235526,
+          "epe_r": 0.9831126224044747,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 1.2684117739836973,
+          "n_pts_total": 0,
+          "n_dyn_total": 68066
+        },
+        "5-15": {
+          "epe_all": NaN,
+          "epe_dyn": 7.572840795616573,
+          "epe_bg": NaN,
+          "epe_t": 2.8810661144526932,
+          "epe_r": 6.586608831892705,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 7.572840795616573,
+          "n_pts_total": 0,
+          "n_dyn_total": 112693
+        },
+        "15-25": {
+          "epe_all": NaN,
+          "epe_dyn": 23.200294828234426,
+          "epe_bg": NaN,
+          "epe_t": 7.751583823638048,
+          "epe_r": 21.643792317593107,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 23.200294828234426,
+          "n_pts_total": 0,
+          "n_dyn_total": 26683
+        },
+        "25-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 32.473389672136854,
+          "epe_bg": NaN,
+          "epe_t": 15.069604840209527,
+          "epe_r": 27.141032570233833,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 32.473389672136854,
+          "n_pts_total": 0,
+          "n_dyn_total": 6264
+        }
+      },
+      "per_tangential_ratio": {
+        "0-0.5": {
+          "epe_all": NaN,
+          "epe_dyn": 11.719033843880377,
+          "epe_bg": NaN,
+          "epe_t": 2.6403913426247874,
+          "epe_r": 11.315265486795656,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 96756
+        },
+        "0.5-1": {
+          "epe_all": NaN,
+          "epe_dyn": 5.251690638885081,
+          "epe_bg": NaN,
+          "epe_t": 3.1521126467381517,
+          "epe_r": 4.172302204597872,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 74820
+        },
+        "1-2": {
+          "epe_all": NaN,
+          "epe_dyn": 7.486040113433142,
+          "epe_bg": NaN,
+          "epe_t": 5.631721219487012,
+          "epe_r": 4.914765536976964,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 30216
+        },
+        "2-5": {
+          "epe_all": NaN,
+          "epe_dyn": 0.738639626802683,
+          "epe_bg": NaN,
+          "epe_t": 0.696917690603976,
+          "epe_r": 0.23647446604490358,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 3214
+        },
+        "5-10": {
+          "epe_all": NaN,
+          "epe_dyn": 0.6525987216404506,
+          "epe_bg": NaN,
+          "epe_t": 0.6461227513915333,
+          "epe_r": 0.08973746625016867,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 2219
+        },
+        "10-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 0.8282606653468733,
+          "epe_bg": NaN,
+          "epe_t": 0.8269963713202728,
+          "epe_r": 0.040195525856631165,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 6438
+        }
+      },
+      "per_scene": {
+        "unknown": {
+          "epe_all": 0.016013092723480643,
+          "epe_dyn": 8.245948365338199,
+          "epe_bg": 0.0012044580147429283,
+          "epe_t": 3.1375739575144888,
+          "epe_r": 7.284371946877257,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": 8.245948365338199,
+          "n_pts_total": 118981343,
+          "n_dyn_total": 213706
+        }
+      }
+    },
+    "B1_doppler_only": {
+      "overall": {
+        "epe_all": 0.3181885688828516,
+        "epe_dyn": 3.870100428456456,
+        "epe_bg": 0.31179739227629805,
+        "epe_t": 3.1375739574380406,
+        "epe_r": 1.294587588400036,
+        "ang_dyn_deg": 45.5024519308147,
+        "mag_err_dyn": 2.07872528478548,
+        "n_pts_total": 118981343,
+        "n_dyn_total": 213706
+      },
+      "per_class": {
+        "unknown": {
+          "epe_all": 1.4407839740686674,
+          "epe_dyn": 4.290899231216389,
+          "epe_bg": 1.4150535793301775,
+          "epe_t": 3.882146232483154,
+          "epe_r": 0.8993769926906476,
+          "ang_dyn_deg": 28.649038183727484,
+          "mag_err_dyn": 1.8167090665882712,
+          "n_pts_total": 2882507,
+          "n_dyn_total": 25790
+        },
+        "car": {
+          "epe_all": 5.605852401989283,
+          "epe_dyn": 10.303993930134995,
+          "epe_bg": 5.600720042060709,
+          "epe_t": 9.94712102791641,
+          "epe_r": 0.9526483869227996,
+          "ang_dyn_deg": 39.98834045717179,
+          "mag_err_dyn": 4.611239016721195,
+          "n_pts_total": 2545748,
+          "n_dyn_total": 2778
+        },
+        "bus": {
+          "epe_all": 14.794315383386833,
+          "epe_dyn": 11.974221601688042,
+          "epe_bg": 15.526706385637059,
+          "epe_t": 11.709976298416574,
+          "epe_r": 0.8591159610028581,
+          "ang_dyn_deg": 33.46063786185292,
+          "mag_err_dyn": 3.658163786565185,
+          "n_pts_total": 7334,
+          "n_dyn_total": 1512
+        },
+        "truck": {
+          "epe_all": 9.936226359227945,
+          "epe_dyn": 2.1050625060060137,
+          "epe_bg": 10.794295130848036,
+          "epe_t": 1.731833509808197,
+          "epe_r": 0.7552065521555625,
+          "ang_dyn_deg": 21.91054918376758,
+          "mag_err_dyn": 1.036874895148277,
+          "n_pts_total": 662830,
+          "n_dyn_total": 65455
+        },
+        "trailer": {
+          "epe_all": 5.938577735250112,
+          "epe_dyn": 3.5065846026989695,
+          "epe_bg": 6.873260639595465,
+          "epe_t": 3.3361063034708383,
+          "epe_r": 0.4625256618630873,
+          "ang_dyn_deg": 58.223987717212104,
+          "mag_err_dyn": 1.181264571840425,
+          "n_pts_total": 278542,
+          "n_dyn_total": 77331
+        },
+        "vehicle_on_rails": {
+          "epe_all": 3.673855915962254,
+          "epe_dyn": 3.614489322033151,
+          "epe_bg": 3.6791101196830756,
+          "epe_t": 3.6103250576174037,
+          "epe_r": 0.10609865159733997,
+          "ang_dyn_deg": 45.804802855319636,
+          "mag_err_dyn": 1.4958476818650075,
+          "n_pts_total": 223396,
+          "n_dyn_total": 18164
+        },
+        "bicycle": {
+          "epe_all": 4.162794696588586,
+          "epe_dyn": NaN,
+          "epe_bg": 4.162794696588586,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1096,
+          "n_dyn_total": 0
+        },
+        "class_8": {
+          "epe_all": 11.39163574784301,
+          "epe_dyn": NaN,
+          "epe_bg": 11.39163574784301,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 129,
+          "n_dyn_total": 0
+        },
+        "pedestrian": {
+          "epe_all": 0.597194580325752,
+          "epe_dyn": NaN,
+          "epe_bg": 0.597194580325752,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 436655,
+          "n_dyn_total": 0
+        },
+        "class_11": {
+          "epe_all": 12.704710089854705,
+          "epe_dyn": NaN,
+          "epe_bg": 12.704710089854705,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 390,
+          "n_dyn_total": 0
+        },
+        "bicyclist": {
+          "epe_all": 3.831152366836686,
+          "epe_dyn": NaN,
+          "epe_bg": 3.831152366836686,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1768,
+          "n_dyn_total": 0
+        },
+        "traffic_item": {
+          "epe_all": 0.07313821320875118,
+          "epe_dyn": NaN,
+          "epe_bg": 0.07313821320875118,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 148611,
+          "n_dyn_total": 0
+        },
+        "traffic_sign": {
+          "epe_all": 0.09758526914438201,
+          "epe_dyn": 6.933511521974345,
+          "epe_bg": 0.09273684173802824,
+          "epe_t": 1.2414529125225928,
+          "epe_r": 6.42309210426738,
+          "ang_dyn_deg": 98.80959781030617,
+          "mag_err_dyn": 6.772817415869578,
+          "n_pts_total": 1574594,
+          "n_dyn_total": 1116
+        },
+        "pole_trunk": {
+          "epe_all": 0.08790002708572049,
+          "epe_dyn": 4.638097671557086,
+          "epe_bg": 0.08611564194403136,
+          "epe_t": 1.1527807370666177,
+          "epe_r": 4.306584238805643,
+          "ang_dyn_deg": 93.94830574858658,
+          "mag_err_dyn": 4.533531794878523,
+          "n_pts_total": 4168348,
+          "n_dyn_total": 1634
+        },
+        "building": {
+          "epe_all": 0.08350384158968081,
+          "epe_dyn": 3.0430838064032724,
+          "epe_bg": 0.08239667072136479,
+          "epe_t": 0.9536760650872802,
+          "epe_r": 2.8447618766324734,
+          "ang_dyn_deg": 96.56125002160738,
+          "mag_err_dyn": 2.9468404671415103,
+          "n_pts_total": 24377110,
+          "n_dyn_total": 9116
+        },
+        "other_structure": {
+          "epe_all": 0.09205672094094319,
+          "epe_dyn": 11.147447764383603,
+          "epe_bg": 0.09125912595309787,
+          "epe_t": 1.071080148187558,
+          "epe_r": 10.682604120501008,
+          "ang_dyn_deg": 92.03487593740142,
+          "mag_err_dyn": 11.054633053157428,
+          "n_pts_total": 10119193,
+          "n_dyn_total": 730
+        },
+        "vegetation": {
+          "epe_all": 0.11684430272095328,
+          "epe_dyn": 13.520676706687834,
+          "epe_bg": 0.11290965089232825,
+          "epe_t": 7.570165367158264,
+          "epe_r": 10.553051591048137,
+          "ang_dyn_deg": 83.55452088858297,
+          "mag_err_dyn": 13.410960189329305,
+          "n_pts_total": 33745584,
+          "n_dyn_total": 9903
+        },
+        "road": {
+          "epe_all": 0.0585787082876343,
+          "epe_dyn": 50.92175100434501,
+          "epe_bg": 0.058468748086105485,
+          "epe_t": 1.1537161792947341,
+          "epe_r": 50.833220853769404,
+          "ang_dyn_deg": 80.47243861854076,
+          "mag_err_dyn": 50.8601964014881,
+          "n_pts_total": 24515725,
+          "n_dyn_total": 53
+        },
+        "lane_boundary": {
+          "epe_all": 0.06794079505302052,
+          "epe_dyn": 58.745613821621596,
+          "epe_bg": 0.06512751159066767,
+          "epe_t": 1.9373079328878489,
+          "epe_r": 58.709596669178765,
+          "ang_dyn_deg": 132.01858528873376,
+          "mag_err_dyn": 58.56673569514834,
+          "n_pts_total": 1209785,
+          "n_dyn_total": 58
+        },
+        "road_marking": {
+          "epe_all": 0.05856260167340063,
+          "epe_dyn": NaN,
+          "epe_bg": 0.05856260167340063,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 851997,
+          "n_dyn_total": 0
+        },
+        "reflective_marker": {
+          "epe_all": 0.09205181218778877,
+          "epe_dyn": NaN,
+          "epe_bg": 0.09205181218778877,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 28970,
+          "n_dyn_total": 0
+        },
+        "sidewalk": {
+          "epe_all": 0.07443374132013661,
+          "epe_dyn": 62.78308022238991,
+          "epe_bg": 0.07387215792331132,
+          "epe_t": 3.0927402010375475,
+          "epe_r": 62.70519124346463,
+          "ang_dyn_deg": 142.24163466366855,
+          "mag_err_dyn": 62.581915838068184,
+          "n_pts_total": 6141575,
+          "n_dyn_total": 55
+        },
+        "other_ground": {
+          "epe_all": 0.10226353996003353,
+          "epe_dyn": 37.6787653836337,
+          "epe_bg": 0.10218184294643158,
+          "epe_t": 7.639572463986031,
+          "epe_r": 36.610617291545246,
+          "ang_dyn_deg": 168.10809326171875,
+          "mag_err_dyn": 37.42178622159091,
+          "n_pts_total": 5059456,
+          "n_dyn_total": 11
+        }
+      },
+      "per_range_m": {
+        "0-25": {
+          "epe_all": 0.4385978711610456,
+          "epe_dyn": 2.821018219017149,
+          "epe_bg": 0.4364139888111702,
+          "epe_t": 2.675525135457792,
+          "epe_r": 0.3414202035694586,
+          "ang_dyn_deg": 69.4977992693547,
+          "mag_err_dyn": 1.2728820663233111,
+          "n_pts_total": 48087742,
+          "n_dyn_total": 44040
+        },
+        "25-50": {
+          "epe_all": 0.20456340483027172,
+          "epe_dyn": 3.2051483592260146,
+          "epe_bg": 0.19641231888457308,
+          "epe_t": 2.8467818883748666,
+          "epe_r": 0.9419247064551756,
+          "ang_dyn_deg": 36.92431509725348,
+          "mag_err_dyn": 1.9244619079406649,
+          "n_pts_total": 41492141,
+          "n_dyn_total": 112408
+        },
+        "50-75": {
+          "epe_all": 0.305775510924132,
+          "epe_dyn": 4.890215574050603,
+          "epe_bg": 0.29349823806726566,
+          "epe_t": 4.522438635542118,
+          "epe_r": 0.8262846864916271,
+          "ang_dyn_deg": 37.90805620515731,
+          "mag_err_dyn": 1.0930871259927522,
+          "n_pts_total": 16420816,
+          "n_dyn_total": 43858
+        },
+        "75-inf": {
+          "epe_all": 0.2510248974981,
+          "epe_dyn": 9.557212817498774,
+          "epe_bg": 0.24140813421118035,
+          "epe_t": 2.562841865421232,
+          "epe_r": 8.918352478959395,
+          "ang_dyn_deg": 63.59541646589823,
+          "mag_err_dyn": 9.24722459013115,
+          "n_pts_total": 12980644,
+          "n_dyn_total": 13400
+        }
+      },
+      "per_speed_mps": {
+        "0.5-5": {
+          "epe_all": NaN,
+          "epe_dyn": 1.0232545221541591,
+          "epe_bg": NaN,
+          "epe_t": 0.6554062326685209,
+          "epe_r": 0.6236310893752786,
+          "ang_dyn_deg": 81.93315876914772,
+          "mag_err_dyn": 0.8085673261521737,
+          "n_pts_total": 0,
+          "n_dyn_total": 68066
+        },
+        "5-15": {
+          "epe_all": NaN,
+          "epe_dyn": 3.032008339878419,
+          "epe_bg": NaN,
+          "epe_t": 2.881066114277659,
+          "epe_r": 0.44816371352344536,
+          "ang_dyn_deg": 26.73238692321816,
+          "mag_err_dyn": 1.3760173461397303,
+          "n_pts_total": 0,
+          "n_dyn_total": 112693
+        },
+        "15-25": {
+          "epe_all": NaN,
+          "epe_dyn": 9.08831712775907,
+          "epe_bg": NaN,
+          "epe_t": 7.751583824092817,
+          "epe_r": 2.3674359743473525,
+          "ang_dyn_deg": 27.626984144962687,
+          "mag_err_dyn": 3.0349443283269766,
+          "n_pts_total": 0,
+          "n_dyn_total": 26683
+        },
+        "25-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 27.65408042145567,
+          "epe_bg": NaN,
+          "epe_t": 15.069604840497666,
+          "epe_r": 19.242952421071568,
+          "ang_dyn_deg": 64.85354836368057,
+          "mag_err_dyn": 24.449421813813814,
+          "n_pts_total": 0,
+          "n_dyn_total": 6264
+        }
+      },
+      "per_tangential_ratio": {
+        "0-0.5": {
+          "epe_all": NaN,
+          "epe_dyn": 3.862189640377087,
+          "epe_bg": NaN,
+          "epe_t": 2.64039134261567,
+          "epe_r": 1.7893579490241374,
+          "ang_dyn_deg": 26.344459631520234,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 96756
+        },
+        "0.5-1": {
+          "epe_all": NaN,
+          "epe_dyn": 3.416250096284604,
+          "epe_bg": NaN,
+          "epe_t": 3.1521126465943627,
+          "epe_r": 0.6707728622444268,
+          "ang_dyn_deg": 58.84678997161647,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 74820
+        },
+        "1-2": {
+          "epe_all": NaN,
+          "epe_dyn": 6.236996780190324,
+          "epe_bg": NaN,
+          "epe_t": 5.631721219350542,
+          "epe_r": 1.714027612961916,
+          "ang_dyn_deg": 56.274641571979956,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 30216
+        },
+        "2-5": {
+          "epe_all": NaN,
+          "epe_dyn": 0.748816869146867,
+          "epe_bg": NaN,
+          "epe_t": 0.6969176905111832,
+          "epe_r": 0.219929327051606,
+          "ang_dyn_deg": 90.80386207659073,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 3214
+        },
+        "5-10": {
+          "epe_all": NaN,
+          "epe_dyn": 0.6661071553054078,
+          "epe_bg": NaN,
+          "epe_t": 0.6461227514145428,
+          "epe_r": 0.12687370811812695,
+          "ang_dyn_deg": 90.3156483576848,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 2219
+        },
+        "10-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 0.83723544293992,
+          "epe_bg": NaN,
+          "epe_t": 0.8269963712692561,
+          "epe_r": 0.08708348985481923,
+          "ang_dyn_deg": 89.83569788221826,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 6438
+        }
+      },
+      "per_scene": {
+        "unknown": {
+          "epe_all": 0.3181885688828516,
+          "epe_dyn": 3.870100428456456,
+          "epe_bg": 0.31179739227629805,
+          "epe_t": 3.1375739574380406,
+          "epe_r": 1.294587588400036,
+          "ang_dyn_deg": 45.5024519308147,
+          "mag_err_dyn": 2.07872528478548,
+          "n_pts_total": 118981343,
+          "n_dyn_total": 213706
+        }
+      }
+    },
+    "B2_class_mean": {
+      "overall": {
+        "epe_all": 0.02075448034271011,
+        "epe_dyn": 8.265328221515986,
+        "epe_bg": 0.005919505613149385,
+        "epe_t": 3.1618402227642806,
+        "epe_r": 7.280898662225041,
+        "ang_dyn_deg": 87.1553594056172,
+        "mag_err_dyn": 8.046583379344733,
+        "n_pts_total": 118981343,
+        "n_dyn_total": 213706
+      },
+      "per_class": {
+        "unknown": {
+          "epe_all": 0.096890645855412,
+          "epe_dyn": 9.327768021292721,
+          "epe_bg": 0.013555711559872752,
+          "epe_t": 3.888949840593658,
+          "epe_r": 8.222072887075438,
+          "ang_dyn_deg": 126.39870563305224,
+          "mag_err_dyn": 9.30902971737419,
+          "n_pts_total": 2882507,
+          "n_dyn_total": 25790
+        },
+        "car": {
+          "epe_all": 0.04306084498574185,
+          "epe_dyn": 15.878402964535852,
+          "epe_bg": 0.02576194685409631,
+          "epe_t": 9.946435953647455,
+          "epe_r": 12.026985394871728,
+          "ang_dyn_deg": 85.23364478419417,
+          "mag_err_dyn": 15.859449128588814,
+          "n_pts_total": 2545748,
+          "n_dyn_total": 2778
+        },
+        "bus": {
+          "epe_all": 9.723106248651176,
+          "epe_dyn": 26.78006593638627,
+          "epe_bg": 5.293335394202455,
+          "epe_t": 14.482084227057411,
+          "epe_r": 22.20078615499972,
+          "ang_dyn_deg": 176.2948254472995,
+          "mag_err_dyn": 16.348318682776558,
+          "n_pts_total": 7334,
+          "n_dyn_total": 1512
+        },
+        "truck": {
+          "epe_all": 0.9102695816189152,
+          "epe_dyn": 8.514984764971569,
+          "epe_bg": 0.07701300124712733,
+          "epe_t": 1.7575965735815182,
+          "epe_r": 8.131230984876389,
+          "ang_dyn_deg": 103.00326844335522,
+          "mag_err_dyn": 8.450483564747344,
+          "n_pts_total": 662830,
+          "n_dyn_total": 65455
+        },
+        "trailer": {
+          "epe_all": 2.42453278359973,
+          "epe_dyn": 7.729402249340769,
+          "epe_bg": 0.38572357640193733,
+          "epe_t": 3.350879165571469,
+          "epe_r": 6.697340836673142,
+          "ang_dyn_deg": 70.40428700782458,
+          "mag_err_dyn": 7.403477806844643,
+          "n_pts_total": 278542,
+          "n_dyn_total": 77331
+        },
+        "vehicle_on_rails": {
+          "epe_all": 0.5115866843797703,
+          "epe_dyn": 5.01335484433925,
+          "epe_bg": 0.11315895325682201,
+          "epe_t": 3.499798642239565,
+          "epe_r": 3.5457724732253273,
+          "ang_dyn_deg": 54.982314900715586,
+          "mag_err_dyn": 4.964268912672603,
+          "n_pts_total": 223396,
+          "n_dyn_total": 18164
+        },
+        "bicycle": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1096,
+          "n_dyn_total": 0
+        },
+        "class_8": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 129,
+          "n_dyn_total": 0
+        },
+        "pedestrian": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 436655,
+          "n_dyn_total": 0
+        },
+        "class_11": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 390,
+          "n_dyn_total": 0
+        },
+        "bicyclist": {
+          "epe_all": 0.00020667042359878306,
+          "epe_dyn": NaN,
+          "epe_bg": 0.00020667042359878306,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1768,
+          "n_dyn_total": 0
+        },
+        "traffic_item": {
+          "epe_all": 0.0023829979868439347,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0023829979868439347,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 148611,
+          "n_dyn_total": 0
+        },
+        "traffic_sign": {
+          "epe_all": 0.011337391609435827,
+          "epe_dyn": 6.903516426575654,
+          "epe_bg": 0.006449066794459555,
+          "epe_t": 1.2390031065739526,
+          "epe_r": 6.378406732710202,
+          "ang_dyn_deg": 73.93187972208932,
+          "mag_err_dyn": 6.899533002981149,
+          "n_pts_total": 1574594,
+          "n_dyn_total": 1116
+        },
+        "pole_trunk": {
+          "epe_all": 0.011120948907064882,
+          "epe_dyn": 4.6214865103199845,
+          "epe_bg": 0.00931296846701739,
+          "epe_t": 1.1510453617007008,
+          "epe_r": 4.279968626302759,
+          "ang_dyn_deg": 45.487531496779575,
+          "mag_err_dyn": 4.619025409768815,
+          "n_pts_total": 4168348,
+          "n_dyn_total": 1634
+        },
+        "building": {
+          "epe_all": 0.010426180048733955,
+          "epe_dyn": 3.0347453078231355,
+          "epe_bg": 0.009294790572559905,
+          "epe_t": 0.9557089409816601,
+          "epe_r": 2.8345004578085224,
+          "ang_dyn_deg": 113.23598069071397,
+          "mag_err_dyn": 3.0233503809855033,
+          "n_pts_total": 24377110,
+          "n_dyn_total": 9116
+        },
+        "other_structure": {
+          "epe_all": 0.0012162350155496238,
+          "epe_dyn": 11.139821813694418,
+          "epe_bg": 0.00041263648660745905,
+          "epe_t": 1.0709808685717366,
+          "epe_r": 10.654814892393691,
+          "ang_dyn_deg": 74.73482648248542,
+          "mag_err_dyn": 11.139596174759408,
+          "n_pts_total": 10119193,
+          "n_dyn_total": 730
+        },
+        "vegetation": {
+          "epe_all": 0.008040890800751746,
+          "epe_dyn": 13.534646444250619,
+          "epe_bg": 0.004070199514580668,
+          "epe_t": 7.568837477643944,
+          "epe_r": 10.57524417588017,
+          "ang_dyn_deg": 41.58977077212055,
+          "mag_err_dyn": 13.533810186994614,
+          "n_pts_total": 33745584,
+          "n_dyn_total": 9903
+        },
+        "road": {
+          "epe_all": 0.00011218988051694491,
+          "epe_dyn": 50.968690350370586,
+          "epe_bg": 2.0017965290334117e-06,
+          "epe_t": 1.1537162157014302,
+          "epe_r": 50.8801658221525,
+          "ang_dyn_deg": 154.9226278269066,
+          "mag_err_dyn": 50.968684448386135,
+          "n_pts_total": 24515725,
+          "n_dyn_total": 53
+        },
+        "lane_boundary": {
+          "epe_all": 0.0028251934150040573,
+          "epe_dyn": 58.6696619494208,
+          "epe_bg": 1.242919692721518e-05,
+          "epe_t": 1.9373082906427213,
+          "epe_r": 58.63362633523396,
+          "ang_dyn_deg": 179.25423063080888,
+          "mag_err_dyn": 58.669636298870216,
+          "n_pts_total": 1209785,
+          "n_dyn_total": 58
+        },
+        "road_marking": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 851997,
+          "n_dyn_total": 0
+        },
+        "reflective_marker": {
+          "epe_all": 0.0,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 28970,
+          "n_dyn_total": 0
+        },
+        "sidewalk": {
+          "epe_all": 0.0005669343671669823,
+          "epe_dyn": 62.7020790793679,
+          "epe_bg": 5.414850899812714e-06,
+          "epe_t": 3.092736158222189,
+          "epe_r": 62.6240797725742,
+          "ang_dyn_deg": 56.73133808482777,
+          "mag_err_dyn": 62.702072420987214,
+          "n_pts_total": 6141575,
+          "n_dyn_total": 55
+        },
+        "other_ground": {
+          "epe_all": 0.0008256939424778318,
+          "epe_dyn": 37.552952159534804,
+          "epe_bg": 0.0007440499328051547,
+          "epe_t": 7.639419480212348,
+          "epe_r": 36.4779843447952,
+          "ang_dyn_deg": 0.9599462151527405,
+          "mag_err_dyn": 37.552952159534804,
+          "n_pts_total": 5059456,
+          "n_dyn_total": 11
+        }
+      },
+      "per_range_m": {
+        "0-25": {
+          "epe_all": 0.008899163152186572,
+          "epe_dyn": 4.121312124281445,
+          "epe_bg": 0.005129456337284329,
+          "epe_t": 2.8219218336309284,
+          "epe_r": 2.9146062295594883,
+          "ang_dyn_deg": 66.64497875781572,
+          "mag_err_dyn": 3.6286842843614093,
+          "n_pts_total": 48087742,
+          "n_dyn_total": 44040
+        },
+        "25-50": {
+          "epe_all": 0.02591794521853373,
+          "epe_dyn": 7.175194464632942,
+          "epe_bg": 0.006496942929434755,
+          "epe_t": 2.8220620485963583,
+          "epe_r": 6.147549685963301,
+          "ang_dyn_deg": 83.52030084925784,
+          "mag_err_dyn": 7.0701646465787205,
+          "n_pts_total": 41492141,
+          "n_dyn_total": 112408
+        },
+        "50-75": {
+          "epe_all": 0.045103039932564405,
+          "epe_dyn": 14.402229976872043,
+          "epe_bg": 0.006654209608568948,
+          "epe_t": 4.555079584382956,
+          "epe_r": 13.590662465448771,
+          "ang_dyn_deg": 120.56556445223023,
+          "mag_err_dyn": 14.106936895466518,
+          "n_pts_total": 16420816,
+          "n_dyn_total": 43858
+        },
+        "75-inf": {
+          "epe_all": 0.017367052208870755,
+          "epe_dyn": 10.943684746872133,
+          "epe_bg": 0.006076090468287761,
+          "epe_t": 2.5692356658559095,
+          "epe_r": 10.486524750018686,
+          "ang_dyn_deg": 75.70625888308483,
+          "mag_err_dyn": 10.921700253560028,
+          "n_pts_total": 12980644,
+          "n_dyn_total": 13400
+        }
+      },
+      "per_speed_mps": {
+        "0.5-5": {
+          "epe_all": NaN,
+          "epe_dyn": 1.2773699708421087,
+          "epe_bg": NaN,
+          "epe_t": 0.7470586530613064,
+          "epe_r": 0.8896735419705952,
+          "ang_dyn_deg": 79.66428557926541,
+          "mag_err_dyn": 1.0683468011516641,
+          "n_pts_total": 0,
+          "n_dyn_total": 68066
+        },
+        "5-15": {
+          "epe_all": NaN,
+          "epe_dyn": 7.483138607619525,
+          "epe_bg": NaN,
+          "epe_t": 2.821271858069201,
+          "epe_r": 6.528450203653518,
+          "ang_dyn_deg": 81.42905475475675,
+          "mag_err_dyn": 7.441469876899681,
+          "n_pts_total": 0,
+          "n_dyn_total": 112693
+        },
+        "15-25": {
+          "epe_all": NaN,
+          "epe_dyn": 23.7137940085167,
+          "epe_bg": NaN,
+          "epe_t": 7.964983079811355,
+          "epe_r": 22.10191753123789,
+          "ang_dyn_deg": 142.22815903849707,
+          "mag_err_dyn": 22.672815386494772,
+          "n_pts_total": 0,
+          "n_dyn_total": 26683
+        },
+        "25-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 32.46364411175023,
+          "epe_bg": NaN,
+          "epe_t": 15.068278950637513,
+          "epe_r": 27.132679743829403,
+          "ang_dyn_deg": 36.97885373507842,
+          "mag_err_dyn": 32.45605874487876,
+          "n_pts_total": 0,
+          "n_dyn_total": 6264
+        }
+      },
+      "per_tangential_ratio": {
+        "0-0.5": {
+          "epe_all": NaN,
+          "epe_dyn": 11.796012892586054,
+          "epe_bg": NaN,
+          "epe_t": 2.6830013302818956,
+          "epe_r": 11.379270742340822,
+          "ang_dyn_deg": 118.5379444842073,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 96756
+        },
+        "0.5-1": {
+          "epe_all": NaN,
+          "epe_dyn": 5.241595844407828,
+          "epe_bg": NaN,
+          "epe_t": 3.1962965091593287,
+          "epe_r": 4.087940787377551,
+          "ang_dyn_deg": 62.6747922720176,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 74820
+        },
+        "1-2": {
+          "epe_all": NaN,
+          "epe_dyn": 7.368598770323588,
+          "epe_bg": NaN,
+          "epe_t": 5.540354501550879,
+          "epe_r": 4.829009295826869,
+          "ang_dyn_deg": 49.61415802641605,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 30216
+        },
+        "2-5": {
+          "epe_all": NaN,
+          "epe_dyn": 0.7431146820361524,
+          "epe_bg": NaN,
+          "epe_t": 0.6640755577731405,
+          "epe_r": 0.2987593986406857,
+          "ang_dyn_deg": 57.806916588274085,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 3214
+        },
+        "5-10": {
+          "epe_all": NaN,
+          "epe_dyn": 0.7072350231845833,
+          "epe_bg": NaN,
+          "epe_t": 0.6743636411130857,
+          "epe_r": 0.17836080139054442,
+          "ang_dyn_deg": 73.55374098561433,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 2219
+        },
+        "10-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 0.9612090609928361,
+          "epe_bg": NaN,
+          "epe_t": 0.9135649119569651,
+          "epe_r": 0.282187267746509,
+          "ang_dyn_deg": 95.50848564691205,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 6438
+        }
+      },
+      "per_scene": {
+        "unknown": {
+          "epe_all": 0.02075448034271011,
+          "epe_dyn": 8.265328221515986,
+          "epe_bg": 0.005919505613149385,
+          "epe_t": 3.1618402227642806,
+          "epe_r": 7.280898662225041,
+          "ang_dyn_deg": 87.1553594056172,
+          "mag_err_dyn": 8.046583379344733,
+          "n_pts_total": 118981343,
+          "n_dyn_total": 213706
+        }
+      }
+    },
+    "B3_doppler_plus_class_mean": {
+      "overall": {
+        "epe_all": 0.3184929761392034,
+        "epe_dyn": 3.8844260829336865,
+        "epe_bg": 0.3120765707833355,
+        "epe_t": 3.161840221903656,
+        "epe_r": 1.294587589258929,
+        "ang_dyn_deg": 50.866921933303786,
+        "mag_err_dyn": 2.052245720060567,
+        "n_pts_total": 118981343,
+        "n_dyn_total": 213706
+      },
+      "per_class": {
+        "unknown": {
+          "epe_all": 1.4414600161559703,
+          "epe_dyn": 4.297374810580599,
+          "epe_bg": 1.4156772619605187,
+          "epe_t": 3.8889498406205876,
+          "epe_r": 0.8993769941163459,
+          "ang_dyn_deg": 28.549563843838815,
+          "mag_err_dyn": 1.8166740631319933,
+          "n_pts_total": 2882507,
+          "n_dyn_total": 25790
+        },
+        "car": {
+          "epe_all": 5.606529986301572,
+          "epe_dyn": 10.303018391346914,
+          "epe_bg": 5.601399451990907,
+          "epe_t": 9.946435950960472,
+          "epe_r": 0.9526483698064453,
+          "ang_dyn_deg": 40.440892451482334,
+          "mag_err_dyn": 4.611070017062819,
+          "n_pts_total": 2545748,
+          "n_dyn_total": 2778
+        },
+        "bus": {
+          "epe_all": 15.46779481650114,
+          "epe_dyn": 14.736210630684303,
+          "epe_bg": 15.657790925731286,
+          "epe_t": 14.482084103251406,
+          "epe_r": 0.8591159877421292,
+          "ang_dyn_deg": 42.4094373329922,
+          "mag_err_dyn": 3.423150482001128,
+          "n_pts_total": 7334,
+          "n_dyn_total": 1512
+        },
+        "truck": {
+          "epe_all": 9.942283925531841,
+          "epe_dyn": 2.1277378359358905,
+          "epe_bg": 10.798531865930153,
+          "epe_t": 1.7575965735829608,
+          "epe_r": 0.7552065543692131,
+          "ang_dyn_deg": 21.724629524490002,
+          "mag_err_dyn": 1.036340067058986,
+          "n_pts_total": 662830,
+          "n_dyn_total": 65455
+        },
+        "trailer": {
+          "epe_all": 5.9866191513325,
+          "epe_dyn": 3.4967939766848346,
+          "epe_bg": 6.9435285312097905,
+          "epe_t": 3.35087916541611,
+          "epe_r": 0.46252566207182605,
+          "ang_dyn_deg": 73.44760772995515,
+          "mag_err_dyn": 1.113632423064304,
+          "n_pts_total": 278542,
+          "n_dyn_total": 77331
+        },
+        "vehicle_on_rails": {
+          "epe_all": 3.6666499004473683,
+          "epe_dyn": 3.5040772468921397,
+          "epe_bg": 3.6810383611313178,
+          "epe_t": 3.4997986434228436,
+          "epe_r": 0.10609865120774244,
+          "ang_dyn_deg": 43.96596054276347,
+          "mag_err_dyn": 1.4940674762268,
+          "n_pts_total": 223396,
+          "n_dyn_total": 18164
+        },
+        "bicycle": {
+          "epe_all": 4.162794691367741,
+          "epe_dyn": NaN,
+          "epe_bg": 4.162794691367741,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1096,
+          "n_dyn_total": 0
+        },
+        "class_8": {
+          "epe_all": 11.391635740450186,
+          "epe_dyn": NaN,
+          "epe_bg": 11.391635740450186,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 129,
+          "n_dyn_total": 0
+        },
+        "pedestrian": {
+          "epe_all": 0.5971945816733081,
+          "epe_dyn": NaN,
+          "epe_bg": 0.5971945816733081,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 436655,
+          "n_dyn_total": 0
+        },
+        "class_11": {
+          "epe_all": 12.704710102081298,
+          "epe_dyn": NaN,
+          "epe_bg": 12.704710102081298,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 390,
+          "n_dyn_total": 0
+        },
+        "bicyclist": {
+          "epe_all": 3.8311523387874415,
+          "epe_dyn": NaN,
+          "epe_bg": 3.8311523387874415,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 1768,
+          "n_dyn_total": 0
+        },
+        "traffic_item": {
+          "epe_all": 0.07323341575284804,
+          "epe_dyn": NaN,
+          "epe_bg": 0.07323341575284804,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 148611,
+          "n_dyn_total": 0
+        },
+        "traffic_sign": {
+          "epe_all": 0.09793511133197787,
+          "epe_dyn": 6.932515029785454,
+          "epe_bg": 0.09308763862491186,
+          "epe_t": 1.2390031066218272,
+          "epe_r": 6.423092103978738,
+          "ang_dyn_deg": 95.00979139964934,
+          "mag_err_dyn": 6.772426878305747,
+          "n_pts_total": 1574594,
+          "n_dyn_total": 1116
+        },
+        "pole_trunk": {
+          "epe_all": 0.08806265926082121,
+          "epe_dyn": 4.636490546504316,
+          "epe_bg": 0.08627896808820958,
+          "epe_t": 1.1510453617302678,
+          "epe_r": 4.3065842387800215,
+          "ang_dyn_deg": 88.61997481660788,
+          "mag_err_dyn": 4.533221712365583,
+          "n_pts_total": 4168348,
+          "n_dyn_total": 1634
+        },
+        "building": {
+          "epe_all": 0.08389449779905353,
+          "epe_dyn": 3.0447057366841923,
+          "epe_bg": 0.08278686626428525,
+          "epe_t": 0.9557089410348694,
+          "epe_r": 2.8447618766335685,
+          "ang_dyn_deg": 99.68795527240994,
+          "mag_err_dyn": 2.946495801975404,
+          "n_pts_total": 24377110,
+          "n_dyn_total": 9116
+        },
+        "other_structure": {
+          "epe_all": 0.09206513598310778,
+          "epe_dyn": 11.147402296980767,
+          "epe_bg": 0.09126754492000053,
+          "epe_t": 1.0709808685091557,
+          "epe_r": 10.682604120471968,
+          "ang_dyn_deg": 91.36795928061825,
+          "mag_err_dyn": 11.054632595508066,
+          "n_pts_total": 10119193,
+          "n_dyn_total": 730
+        },
+        "vegetation": {
+          "epe_all": 0.116871971683261,
+          "epe_dyn": 13.519512020318565,
+          "epe_bg": 0.11293766997480562,
+          "epe_t": 7.568837477636982,
+          "epe_r": 10.553051591075628,
+          "ang_dyn_deg": 81.77596935357943,
+          "mag_err_dyn": 13.410895259831394,
+          "n_pts_total": 33745584,
+          "n_dyn_total": 9903
+        },
+        "road": {
+          "epe_all": 0.05857878641729489,
+          "epe_dyn": 50.921750995348084,
+          "epe_bg": 0.05846882621593499,
+          "epe_t": 1.1537162156944818,
+          "epe_r": 50.83322085490954,
+          "ang_dyn_deg": 80.47227192083572,
+          "mag_err_dyn": 50.86019637449732,
+          "n_pts_total": 24515725,
+          "n_dyn_total": 53
+        },
+        "lane_boundary": {
+          "epe_all": 0.06794150311965286,
+          "epe_dyn": 58.745613821621596,
+          "epe_bg": 0.06512821951466023,
+          "epe_t": 1.9373082906256915,
+          "epe_r": 58.70959666966588,
+          "ang_dyn_deg": 132.0193076133728,
+          "mag_err_dyn": 58.56673569514834,
+          "n_pts_total": 1209785,
+          "n_dyn_total": 58
+        },
+        "road_marking": {
+          "epe_all": 0.058562601613664604,
+          "epe_dyn": NaN,
+          "epe_bg": 0.058562601613664604,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 851997,
+          "n_dyn_total": 0
+        },
+        "reflective_marker": {
+          "epe_all": 0.0920518122420543,
+          "epe_dyn": NaN,
+          "epe_bg": 0.0920518122420543,
+          "epe_t": NaN,
+          "epe_r": NaN,
+          "ang_dyn_deg": NaN,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 28970,
+          "n_dyn_total": 0
+        },
+        "sidewalk": {
+          "epe_all": 0.07443405687292921,
+          "epe_dyn": 62.78308022238991,
+          "epe_bg": 0.07387247349383703,
+          "epe_t": 3.0927361582043122,
+          "epe_r": 62.705191242485924,
+          "ang_dyn_deg": 142.2378777070479,
+          "mag_err_dyn": 62.581915838068184,
+          "n_pts_total": 6141575,
+          "n_dyn_total": 55
+        },
+        "other_ground": {
+          "epe_all": 0.10226936571803519,
+          "epe_dyn": 37.67872550270774,
+          "epe_bg": 0.10218766879551278,
+          "epe_t": 7.6394194803859765,
+          "epe_r": 36.61061729245846,
+          "ang_dyn_deg": 167.3783943869851,
+          "mag_err_dyn": 37.42178622159091,
+          "n_pts_total": 5059456,
+          "n_dyn_total": 11
+        }
+      },
+      "per_range_m": {
+        "0-25": {
+          "epe_all": 0.43906115103280124,
+          "epe_dyn": 2.929399300602812,
+          "epe_bg": 0.4367783443962145,
+          "epe_t": 2.8219218262931682,
+          "epe_r": 0.34142020307312665,
+          "ang_dyn_deg": 83.149112097965,
+          "mag_err_dyn": 1.1787487563209356,
+          "n_pts_total": 48087742,
+          "n_dyn_total": 44040
+        },
+        "25-50": {
+          "epe_all": 0.20476879480137763,
+          "epe_dyn": 3.176786397538247,
+          "epe_bg": 0.19669531184384867,
+          "epe_t": 2.822062049962717,
+          "epe_r": 0.941924707868098,
+          "ang_dyn_deg": 41.7651167490005,
+          "mag_err_dyn": 1.9116176326628784,
+          "n_pts_total": 41492141,
+          "n_dyn_total": 112408
+        },
+        "50-75": {
+          "epe_all": 0.3060121987556212,
+          "epe_dyn": 4.922696708008824,
+          "epe_bg": 0.29364857420319423,
+          "epe_t": 4.555079584060869,
+          "epe_r": 0.8262846869057079,
+          "ang_dyn_deg": 37.968521258592,
+          "mag_err_dyn": 1.0917466799659135,
+          "n_pts_total": 16420816,
+          "n_dyn_total": 43858
+        },
+        "75-inf": {
+          "epe_all": 0.2511429270934491,
+          "epe_dyn": 9.561088011344866,
+          "epe_bg": 0.2415222810555607,
+          "epe_t": 2.5692356658388946,
+          "epe_r": 8.918352481080667,
+          "ang_dyn_deg": 63.33599269543784,
+          "mag_err_dyn": 9.246431850862146,
+          "n_pts_total": 12980644,
+          "n_dyn_total": 13400
+        }
+      },
+      "per_speed_mps": {
+        "0.5-5": {
+          "epe_all": NaN,
+          "epe_dyn": 1.0861255775360925,
+          "epe_bg": NaN,
+          "epe_t": 0.7470586494278543,
+          "epe_r": 0.6236310895727449,
+          "ang_dyn_deg": 99.83447954934414,
+          "mag_err_dyn": 0.7336527259169151,
+          "n_pts_total": 0,
+          "n_dyn_total": 68066
+        },
+        "5-15": {
+          "epe_all": NaN,
+          "epe_dyn": 2.9709808758513114,
+          "epe_bg": NaN,
+          "epe_t": 2.8212718604222027,
+          "epe_r": 0.4481637152368324,
+          "ang_dyn_deg": 25.902287204009365,
+          "mag_err_dyn": 1.37431457308779,
+          "n_pts_total": 0,
+          "n_dyn_total": 112693
+        },
+        "15-25": {
+          "epe_all": NaN,
+          "epe_dyn": 9.300642505335592,
+          "epe_bg": NaN,
+          "epe_t": 7.964983072436182,
+          "epe_r": 2.3674359751312544,
+          "ang_dyn_deg": 28.407871002497814,
+          "mag_err_dyn": 3.021176050981964,
+          "n_pts_total": 0,
+          "n_dyn_total": 26683
+        },
+        "25-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 27.653120144154986,
+          "epe_bg": NaN,
+          "epe_t": 15.068278949842451,
+          "epe_r": 19.24295241406434,
+          "ang_dyn_deg": 63.581584789277706,
+          "mag_err_dyn": 24.449352792091904,
+          "n_pts_total": 0,
+          "n_dyn_total": 6264
+        }
+      },
+      "per_tangential_ratio": {
+        "0-0.5": {
+          "epe_all": NaN,
+          "epe_dyn": 3.898554830506867,
+          "epe_bg": NaN,
+          "epe_t": 2.6830013297174333,
+          "epe_r": 1.789357950332398,
+          "ang_dyn_deg": 26.362151865733598,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 96756
+        },
+        "0.5-1": {
+          "epe_all": NaN,
+          "epe_dyn": 3.4411736778052564,
+          "epe_bg": NaN,
+          "epe_t": 3.1962965067350977,
+          "epe_r": 0.6707728630928513,
+          "ang_dyn_deg": 69.16986156034686,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 74820
+        },
+        "1-2": {
+          "epe_all": NaN,
+          "epe_dyn": 6.142968048056282,
+          "epe_bg": NaN,
+          "epe_t": 5.540354503997275,
+          "epe_r": 1.714027612741289,
+          "ang_dyn_deg": 58.5746308747173,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 30216
+        },
+        "2-5": {
+          "epe_all": NaN,
+          "epe_dyn": 0.7176467264262355,
+          "epe_bg": NaN,
+          "epe_t": 0.6640755591174458,
+          "epe_r": 0.21992932680392438,
+          "ang_dyn_deg": 76.45511869901203,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 3214
+        },
+        "5-10": {
+          "epe_all": NaN,
+          "epe_dyn": 0.6940888269842611,
+          "epe_bg": NaN,
+          "epe_t": 0.6743636399258867,
+          "epe_r": 0.12687370812110982,
+          "ang_dyn_deg": 104.29507399761714,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 2219
+        },
+        "10-inf": {
+          "epe_all": NaN,
+          "epe_dyn": 0.9232673482537158,
+          "epe_bg": NaN,
+          "epe_t": 0.9135649083287377,
+          "epe_r": 0.08708348999902293,
+          "ang_dyn_deg": 138.4333956338264,
+          "mag_err_dyn": NaN,
+          "n_pts_total": 0,
+          "n_dyn_total": 6438
+        }
+      },
+      "per_scene": {
+        "unknown": {
+          "epe_all": 0.3184929761392034,
+          "epe_dyn": 3.8844260829336865,
+          "epe_bg": 0.3120765707833355,
+          "epe_t": 3.161840221903656,
+          "epe_r": 1.294587589258929,
+          "ang_dyn_deg": 50.866921933303786,
+          "mag_err_dyn": 2.052245720060567,
+          "n_pts_total": 118981343,
+          "n_dyn_total": 213706
+        }
+      }
+    }
+  }
+}

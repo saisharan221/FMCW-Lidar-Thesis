@@ -1,0 +1,52 @@
+timestamp	query	source	papers_found
+2026-04-15T10:00	FMCW LiDAR velocity estimation deep learning 2023 2024 2025	Google Scholar	2
+2026-04-15T10:01	"radial velocity" "tangential velocity" recovery point cloud LiDAR machine learning	Google Scholar	3
+2026-04-15T10:02	scene flow estimation point cloud single frame 2023 2024 CVPR ECCV	Google Scholar	5
+2026-04-15T10:03	PointNet PointNet++ point cloud deep learning 3D velocity autonomous driving	Google Scholar	2
+2026-04-15T10:04	Doppler LiDAR 3D object detection perception CVPR 2024 2025	Google Scholar	2
+2026-04-15T10:05	self-supervised scene flow point cloud autonomous driving SeFlow DeFlow 2024	Google Scholar	3
+2026-04-15T10:06	Aeva FMCW LiDAR dataset benchmark View of Delft ZOD Zenseact	Google Scholar	3
+2026-04-15T10:07	sparse convolution 3D point cloud MinkowskiNet SPVCNN voxel transformer	Google Scholar	3
+2026-04-15T10:08	Flow4D scene flow 4D point cloud VoteFlow TeFlow 2024 2025	Google Scholar	3
+2026-04-15T10:09	radar velocity disambiguation full velocity estimation 4D radar	Google Scholar	2
+2026-04-15T10:10	Camera-RADAR-LiDAR point-wise 3D velocity estimation 2025	arXiv	2
+2026-04-15T10:11	neural scene flow prior NSFP FastNSF runtime optimization ICCV 2023	Google Scholar	2
+2026-04-15T10:12	Point Transformer V2 V3 point cloud CVPR 2024	Google Scholar	2
+2026-04-15T10:13	MinkowskiNet Minkowski convolution 3D sparse convolution Choy 2019	Google Scholar	1
+2026-04-15T10:20	RaLiFlow scene flow 4D radar LiDAR fusion 2025	arXiv	1
+2026-04-15T10:21	Doppler velocity full velocity 3D velocity single sensor LiDAR inference	Google Scholar	2
+2026-04-15T10:22	TeFlow self-supervised scene flow multi-frame supervision CVPR 2026	arXiv	1
+2026-04-15T10:23	DICP Doppler ICP FMCW LiDAR odometry RSS 2022	Google Scholar	1
+2026-04-15T10:24	Need for Speed correspondence-free lidar-inertial odometry Doppler 2023	Google Scholar	1
+2026-04-15T10:25	DeltaFlow NeurIPS 2025 HiMo SSF ICRA 2025	Google Scholar	3
+2026-04-15T10:26	Hidden Gems 4D radar scene flow cross-modal supervision CVPR 2023	Google Scholar	1
+2026-04-15T10:30	Argoverse 2 dataset LiDAR scene flow benchmark 3D motion	Google Scholar	1
+2026-04-15T10:31	scene flow single frame velocity estimation point cloud 2024 2025	Google Scholar	1
+2026-04-15T10:32	pillar-based 3D object detection PointPillars VoxelNet velocity	Google Scholar	2
+2026-04-15T10:33	Aeva 4D LiDAR radial to full velocity tangential deep learning	Google Scholar	0
+2026-04-15T10:34	POD Predictive Object Detection Single-Frame FMCW LiDAR 2025	arXiv	1
+2026-04-15T10:35	Dynamic-ICP Doppler-Aware FMCW LiDAR dynamic objects 2025	arXiv	1
+2026-04-15T10:36	Just Go with the Flow self-supervised scene flow CVPR 2020	Google Scholar	1
+2026-04-15T10:37	Waymo Open Dataset perception motion prediction velocity	Google Scholar	1
+2026-04-15T10:38	FlyingThings3D KITTI scene flow dataset benchmark	Google Scholar	1
+2026-04-15T10:40	radial velocity tangential decomposition estimation autonomous driving	Google Scholar	2
+2026-04-15T10:41	tangential velocity estimation near-field automotive radar Cramer-Rao	arXiv	1
+2026-04-15T10:42	SGE-Flow 4D mmWave radar inter-frame flow tangential velocity	Google Scholar	1
+2026-04-15T10:43	velocity vector estimation radar network multi-station Doppler	Google Scholar	1
+2026-04-15T10:44	Khurana point cloud forecasting 4D occupancy LiDAR	Google Scholar	1
+2026-04-15T10:45	BEVFusion multi-sensor fusion LiDAR camera velocity	Google Scholar	0
+2026-04-15T10:50	scene flow Doppler velocity FMCW LiDAR 2024 2025 2026	Google Scholar	1
+2026-04-15T10:51	HeRCULES dataset FMCW LiDAR Doppler benchmark	Google Scholar	0
+2026-04-15T10:52	4D LiDAR semantic segmentation moving object Doppler 2024 2025	Google Scholar	0
+2026-04-15T10:53	DopplerPTNet object detection FMCW LiDAR attention 2024	Google Scholar	1
+2026-04-15T10:54	DoGFlow self-supervised scene flow Doppler guidance LiDAR 2025	arXiv	1
+2026-04-15T10:55	HeLiPR heterogeneous LiDAR dataset FMCW Doppler 2024	Google Scholar	1
+2026-04-15T11:00	point cloud velocity per-point prediction network 2024 2025	Google Scholar	0
+2026-04-15T11:01	motion segmentation point cloud Doppler velocity 4D radar 2024	Google Scholar	2
+2026-04-15T11:02	KPConv kernel point convolution 3D point cloud Thomas 2019	Google Scholar	1
+2026-04-15T11:03	RadarMOSEVE moving object segmentation ego-velocity radar 2024	Google Scholar	1
+2026-04-15T11:04	RadarPillars efficient detection 4D radar velocity decomposition	Google Scholar	1
+2026-04-15T11:10	velocity completion prediction single frame FMCW Doppler LiDAR neural	Google Scholar	0
+2026-04-15T11:11	Doppler velocity clustering moving object velocity estimation FMCW	Google Scholar	2
+2026-04-15T11:12	scene flow Doppler radial velocity joint estimation LiDAR radar 2024-2026	Google Scholar	0
+2026-04-15T11:13	Learning Moving-Object Tracking FMCW LiDAR 2022	Google Scholar	1

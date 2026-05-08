@@ -1,0 +1,47 @@
+# PointMLP pilot config — quick smoke test on the laptop GPU.
+# 3 sequences, 5 epochs, ~5-10 min on RTX 5070 Laptop.
+
+data:
+  root: ${oc.env:AEVASCENES_ROOT, data/aevascenes_v0.2}
+  splits_file: code/configs/splits.json
+  lidar: front_wide_lidar
+  grid_size: 0.1
+  num_workers: 2
+  pilot_sequences: 3
+
+model:
+  backbone: pointmlp
+  in_channels: 5
+  pointmlp_width: 64
+  pointmlp_blocks: 3
+  head_hidden: 64
+  head_dropout: 0.0
+  enable_flash: false
+
+optim:
+  lr_peak: 0.002
+  weight_decay: 0.005
+  grad_clip: 1.0
+  pct_start: 0.1
+  optimizer: adamw
+  scheduler: onecycle
+
+trainer:
+  epochs: 5
+  batch_size: 1
+  grad_accum: 1
+  precision: bf16
+  seed: 42
+  val_every_epochs: 1
+  save_every_epochs: 5
+
+loss:
+  huber_beta: 0.5
+  w_dyn: 1.0
+  w_bg: 0.2
+  dynamic_threshold: 0.5
+
+wandb:
+  enabled: false
+
+output_dir: checkpoints

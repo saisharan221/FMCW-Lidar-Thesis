@@ -1,0 +1,179 @@
+{
+  "n_global_unique": 25650,
+  "n_track_instances": 25650,
+  "lifetime_median": 52.0,
+  "lifetime_mean": 53.089356725146196,
+  "lifetime_frac_full": 0.1936842105263158,
+  "by_class": {
+    "car": {
+      "n_tracks": 11528,
+      "lifetime_median": 19.0,
+      "lifetime_mean": 34.699253990284525,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.10799791811242193,
+      "speed_median": 0.9654555915193221,
+      "speed_mean": 7.545165513989864,
+      "speed_p95": 29.721181196456506
+    },
+    "pole_trunk": {
+      "n_tracks": 7886,
+      "lifetime_median": 76.0,
+      "lifetime_mean": 67.6137458787725,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.2662946994674106,
+      "speed_median": 0.3489798131861921,
+      "speed_mean": 1.805911600485843,
+      "speed_p95": 7.197813977337031
+    },
+    "traffic_item": {
+      "n_tracks": 1293,
+      "lifetime_median": 74.0,
+      "lifetime_mean": 64.37122969837587,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.18561484918793503,
+      "speed_median": 0.26330866187419766,
+      "speed_mean": 0.597394706560551,
+      "speed_p95": 0.8912745422375528
+    },
+    "bus": {
+      "n_tracks": 67,
+      "lifetime_median": 93.0,
+      "lifetime_mean": 72.40298507462687,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.417910447761194,
+      "speed_median": 11.01380887436509,
+      "speed_mean": 12.788216413273764,
+      "speed_p95": 28.94043239608051
+    },
+    "traffic_sign": {
+      "n_tracks": 3206,
+      "lifetime_median": 87.0,
+      "lifetime_mean": 74.60106051154087,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.3278228321896444,
+      "speed_median": 0.4031316256688272,
+      "speed_mean": 1.883390720468179,
+      "speed_p95": 7.2376316405042225
+    },
+    "unknown": {
+      "n_tracks": 305,
+      "lifetime_median": 71.0,
+      "lifetime_mean": 65.16065573770491,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.25901639344262295,
+      "speed_median": 0.36179871473122927,
+      "speed_mean": 0.3947081893147214,
+      "speed_p95": 0.8581571526271965
+    },
+    "other_structure": {
+      "n_tracks": 158,
+      "lifetime_median": 77.5,
+      "lifetime_mean": 68.5506329113924,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.17721518987341772,
+      "speed_median": 0.24692118753364795,
+      "speed_mean": 0.40434644213932014,
+      "speed_p95": 0.8721972131826459
+    },
+    "pedestrian": {
+      "n_tracks": 785,
+      "lifetime_median": 55.0,
+      "lifetime_mean": 55.78343949044586,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.12484076433121019,
+      "speed_median": 0.9305019487650618,
+      "speed_mean": 0.9550026146263312,
+      "speed_p95": 1.7745607563674135
+    },
+    "other_vehicle": {
+      "n_tracks": 22,
+      "lifetime_median": 79.0,
+      "lifetime_mean": 70.77272727272727,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.22727272727272727,
+      "speed_median": 0.713628335979326,
+      "speed_mean": 2.992806155303309,
+      "speed_p95": 16.533925994297483
+    },
+    "bicycle": {
+      "n_tracks": 87,
+      "lifetime_median": 83.0,
+      "lifetime_mean": 71.8735632183908,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.11494252873563218,
+      "speed_median": 0.3304809050812697,
+      "speed_mean": 1.4475821125205945,
+      "speed_p95": 6.257047119571065
+    },
+    "truck": {
+      "n_tracks": 214,
+      "lifetime_median": 64.0,
+      "lifetime_mean": 60.90654205607477,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.308411214953271,
+      "speed_median": 5.757666189156501,
+      "speed_mean": 9.815178530973364,
+      "speed_p95": 30.345352298149574
+    },
+    "trailer": {
+      "n_tracks": 30,
+      "lifetime_median": 52.0,
+      "lifetime_mean": 59.833333333333336,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.26666666666666666,
+      "speed_median": 4.425776632843083,
+      "speed_mean": 7.6142099809139845,
+      "speed_p95": 24.186054517529623
+    },
+    "motorcyclist": {
+      "n_tracks": 7,
+      "lifetime_median": 36.0,
+      "lifetime_mean": 46.57142857142857,
+      "lifetime_p95": 96.39999999999999,
+      "frac_full_100": 0.14285714285714285,
+      "speed_median": 13.930550245328714,
+      "speed_mean": 18.322949512246517,
+      "speed_p95": 36.89059665276925
+    },
+    "motorcycle": {
+      "n_tracks": 15,
+      "lifetime_median": 53.0,
+      "lifetime_mean": 60.6,
+      "lifetime_p95": 96.5,
+      "frac_full_100": 0.06666666666666667,
+      "speed_median": 0.8670892465522436,
+      "speed_mean": 8.284687333192005,
+      "speed_p95": 28.41506219421963
+    },
+    "bicyclist": {
+      "n_tracks": 33,
+      "lifetime_median": 69.0,
+      "lifetime_mean": 63.36363636363637,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.15151515151515152,
+      "speed_median": 4.187377954656235,
+      "speed_mean": 4.100560115765512,
+      "speed_p95": 7.232188999057566
+    },
+    "vehicle_on_rails": {
+      "n_tracks": 8,
+      "lifetime_median": 68.5,
+      "lifetime_mean": 68.375,
+      "lifetime_p95": 100.0,
+      "frac_full_100": 0.25,
+      "speed_median": 5.217608936674214,
+      "speed_mean": 9.405682628431306,
+      "speed_p95": 18.66717702697517
+    },
+    "animal": {
+      "n_tracks": 6,
+      "lifetime_median": 39.5,
+      "lifetime_mean": 44.333333333333336,
+      "lifetime_p95": 86.5,
+      "frac_full_100": 0.16666666666666666,
+      "speed_median": 1.3866663018205592,
+      "speed_mean": 1.3885266645667438,
+      "speed_p95": 1.849750523955312
+    }
+  }
+}

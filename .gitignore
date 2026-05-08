@@ -1,0 +1,33 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Generated outputs
+SPP_Preliminary.pdf
+SPP_Preliminary.html
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Datasets — too large for git (AevaScenes v0.2 is ~85 GB extracted).
+# Anchored to the repo root so source-code packages named `data/`
+# (e.g. `code/ptv3_fmcw/data/`) are not affected.
+/data/
+
+# Tool/IDE state
+.idea/
+.vscode/
+*.npz
+
+# Run artefacts
+run.log
+/checkpoints/

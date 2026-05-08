@@ -1,0 +1,52 @@
+# PointMLP full config — train on the full train split until val plateaus.
+# 70 sequences, ~7000 frames per epoch.
+#
+# RTX 5070 Laptop (12 GB) sizing notes:
+#   - PointMLP at width=64, 3 blocks ≈ 0.05 M params; tiny by ML standards.
+#   - The bottleneck is npz I/O + per-point GT; one frame ~150 ms on
+#     this machine. 7000 frames per epoch ≈ 17 min/epoch.
+#   - 5 epochs ≈ 85 min, which is what the user-facing PR uses.
+
+data:
+  root: ${oc.env:AEVASCENES_ROOT, data/aevascenes_v0.2}
+  splits_file: code/configs/splits.json
+  lidar: front_wide_lidar
+  grid_size: 0.1
+  num_workers: 4
+
+model:
+  backbone: pointmlp
+  in_channels: 5
+  pointmlp_width: 96
+  pointmlp_blocks: 4
+  head_hidden: 64
+  head_dropout: 0.0
+  enable_flash: false
+
+optim:
+  lr_peak: 0.003
+  weight_decay: 0.005
+  grad_clip: 1.0
+  pct_start: 0.05
+  optimizer: adamw
+  scheduler: onecycle
+
+trainer:
+  epochs: 5
+  batch_size: 1
+  grad_accum: 4
+  precision: bf16
+  seed: 42
+  val_every_epochs: 1
+  save_every_epochs: 1
+
+loss:
+  huber_beta: 0.5
+  w_dyn: 5.0      # dyn-heavy weighting
+  w_bg: 0.05      # paired with the heavier w_dyn above
+  dynamic_threshold: 0.5
+
+wandb:
+  enabled: false
+
+output_dir: checkpoints

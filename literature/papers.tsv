@@ -1,0 +1,48 @@
+bibtex_key	title	authors_short	year	venue	relevance	category
+qi2017pointnet	PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation	Qi et al.	2017	CVPR	high	point_cloud_dl
+qi2017pointnetpp	PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space	Qi et al.	2017	NeurIPS	high	point_cloud_dl
+choy2019minkowski	4D Spatio-Temporal ConvNets: Minkowski Convolutional Neural Networks	Choy et al.	2019	CVPR	high	point_cloud_dl
+tang2020spvnas	Searching Efficient 3D Architectures with Sparse Point-Voxel Convolution	Tang et al.	2020	ECCV	medium	point_cloud_dl
+wu2022pointtransformerv2	Point Transformer V2: Grouped Vector Attention and Partition-based Pooling	Wu et al.	2022	NeurIPS	medium	point_cloud_dl
+wu2024pointtransformerv3	Point Transformer V3: Simpler Faster Stronger	Wu et al.	2024	CVPR	high	point_cloud_dl
+li2021nsfp	Neural Scene Flow Prior	Li et al.	2021	NeurIPS	high	scene_flow
+li2023fastnsfp	Fast Neural Scene Flow	Li et al.	2023	ICCV	high	scene_flow
+peng2023delflow	DELFlow: Dense Efficient Learning of Scene Flow for Large-Scale Point Clouds	Peng et al.	2023	ICCV	medium	scene_flow
+zhang2024deflow	DeFlow: Decoder of Scene Flow Network in Autonomous Driving	Zhang et al.	2024	ICRA	high	scene_flow
+zhang2024seflow	SeFlow: A Self-Supervised Scene Flow Method in Autonomous Driving	Zhang et al.	2024	ECCV	high	self_supervised
+cho2025flow4d	Flow4D: Leveraging 4D Voxel Network for LiDAR Scene Flow Estimation	Cho et al.	2025	RA-L	high	scene_flow
+voteflow2025	VoteFlow: Enforcing Local Rigidity in Self-Supervised Scene Flow	Ding et al.	2025	CVPR	high	self_supervised
+li2023sceneflow_survey	Deep Learning for Scene Flow Estimation on Point Clouds: A Survey and Prospective Trends	Li et al.	2023	CGF	high	scene_flow
+palffy2022vod	Multi-Class Road User Detection with 3+1D Radar in the View-of-Delft Dataset	Palffy et al.	2022	RA-L	high	datasets
+alibeigi2023zod	Zenseact Open Dataset: A Large-Scale Multi-Modal Dataset for Autonomous Driving	Alibeigi et al.	2023	ICCV	medium	datasets
+aeva2025aevascenes	AevaScenes: FMCW 4D LiDAR and Camera Dataset for Autonomous Vehicle Research	Aeva	2025	Dataset	high	datasets
+zhou2025carliv	CaRLi-V: Camera-RADAR-LiDAR Point-Wise 3D Velocity Estimation	Zhou et al.	2025	arXiv	high	velocity_estimation
+chae2024lidar4dradar	Towards Robust 3D Object Detection with LiDAR and 4D Radar Fusion	Chae et al.	2024	CVPR	medium	sensor_fusion
+gao2024milliflow	milliFlow: Scene Flow Estimation on mmWave Radar Point Cloud for Human Motion Sensing	Gao et al.	2024	ECCV	medium	radar
+zhou2022deepradar_survey	Towards Deep Radar Perception for Autonomous Driving: Datasets Methods and Challenges	Zhou et al.	2022	Sensors	medium	radar
+hexsel2022dicp	DICP: Doppler Iterative Closest Point Algorithm	Hexsel et al.	2022	RSS	high	doppler_perception
+wu2023pickingupspeed	Picking Up Speed: Continuous-Time Lidar-Only Odometry Using Doppler Velocity Measurements	Wu et al.	2023	RA-L	high	doppler_perception
+yoon2023needforspeed	Need for Speed: Fast Correspondence-Free Lidar-Inertial Odometry Using Doppler Velocity	Yoon et al.	2023	IROS	high	doppler_perception
+ding2023cmflow	Hidden Gems: 4D Radar Scene Flow Learning Using Cross-Modal Supervision	Ding et al.	2023	CVPR	high	radar
+zhang2025deltaflow	DeltaFlow: An Efficient Multi-frame Scene Flow Estimation Method	Zhang et al.	2025	NeurIPS	high	scene_flow
+zhang2026teflow	TeFlow: Enabling Multi-frame Supervision for Self-Supervised Scene Flow Estimation	Zhang et al.	2026	CVPR	high	self_supervised
+raliflow2025	RaLiFlow: Scene Flow Estimation with 4D Radar and LiDAR Point Clouds	Authors et al.	2025	AAAI	high	sensor_fusion
+pod2025	POD: Predictive Object Detection with Single-Frame FMCW LiDAR Point Cloud	Authors et al.	2025	arXiv	high	velocity_estimation
+dynamicicp2025	Dynamic-ICP: Doppler-Aware Iterative Closest Point Registration for Dynamic Scenes	Authors et al.	2025	arXiv	high	doppler_perception
+zhou2018voxelnet	VoxelNet: End-to-End Learning for Point Cloud Based 3D Object Detection	Zhou et al.	2018	CVPR	high	point_cloud_dl
+lang2019pointpillars	PointPillars: Fast Encoders for Object Detection from Point Clouds	Lang et al.	2019	CVPR	high	point_cloud_dl
+mittal2020justgo	Just Go with the Flow: Self-Supervised Scene Flow Estimation	Mittal et al.	2020	CVPR	high	self_supervised
+wilson2023argoverse2	Argoverse 2: Next Generation Datasets for Self-Driving Perception and Forecasting	Wilson et al.	2023	NeurIPS	high	datasets
+sun2020waymo	Scalability in Perception for Autonomous Driving: Waymo Open Dataset	Sun et al.	2020	CVPR	high	datasets
+mayer2016flyingthings3d	A Large Dataset to Train Convolutional Networks for Disparity Optical Flow and Scene Flow Estimation	Mayer et al.	2016	CVPR	medium	datasets
+shifrin2025tangential	Tangential Velocity Estimation Using Near-Field Automotive Radar Model	Shifrin et al.	2025	EUSIPCO	high	velocity_estimation
+sgeflow2026	SGE-Flow: 4D mmWave Radar 3D Object Detection via Spatiotemporal Geometric Enhancement and Inter-Frame Flow	Authors et al.	2026	Sensors	medium	radar
+khurana2023pointcloud_forecast	Point Cloud Forecasting as a Proxy for 4D Occupancy Forecasting	Khurana et al.	2023	CVPR	medium	velocity_estimation
+khoche2026dogflow	DoGFlow: Self-Supervised LiDAR Scene Flow via Cross-Modal Doppler Guidance	Khoche et al.	2026	RA-L	high	self_supervised
+dopplerptnet2024	DopplerPTNet: Object Detection with Doppler Velocity Information for FMCW LiDAR	Authors et al.	2024	arXiv	high	doppler_perception
+jung2024helipr	HeLiPR: Heterogeneous LiDAR Dataset for inter-LiDAR Place Recognition	Jung et al.	2024	IJRR	medium	datasets
+thomas2019kpconv	KPConv: Flexible and Deformable Convolution for Point Clouds	Thomas et al.	2019	ICCV	high	point_cloud_dl
+radarpillars2024	RadarPillars: Efficient Object Detection from 4D Radar Point Clouds	Authors et al.	2024	ICRA	medium	radar
+li2024radarmoseve	RadarMOSEVE: Spatial-Temporal Transformer for Radar Moving Object Segmentation and Ego-Velocity Estimation	Li et al.	2024	AAAI	medium	radar
+ding2022doppler_clustering	Doppler Velocity-Based Algorithm for Clustering and Velocity Estimation of Moving Objects	Ding et al.	2022	ITSC	high	velocity_estimation
+gu2022fmcw_tracking	Learning Moving-Object Tracking with FMCW LiDAR	Gu et al.	2022	IROS	high	fmcw_lidar

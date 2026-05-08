@@ -1,0 +1,50 @@
+{
+  "n_box_samples": 50,
+  "v_radial_sign_convention": {
+    "verdict": "POSITIVE = RECEDING (point moving away from sensor)",
+    "mean_resid_recede": 1.1773562233240513,
+    "mean_resid_approach": 29.840971854177013,
+    "median_resid_recede": 0.326424117177319,
+    "median_resid_approach": 38.438904789261485
+  },
+  "box_linear_velocity_frame": {
+    "verdict": "VEHICLE / ego-compensated (consistent with point velocity field)",
+    "best_residual": 1.1773562233240513,
+    "residual_threshold": 1.5
+  },
+  "sequences_used": [
+    "0ea4b420-f0d3-4ffb-bc2c-890a865f1926",
+    "11c572b1-c516-4cb8-952d-2488bc818fbb",
+    "17d05835-af47-42f8-b9f9-b9e2675c8dc7",
+    "2312c755-d08d-44db-8ad7-5f77439a5e26",
+    "2323b49b-b056-4384-b60e-8d32ebff587e",
+    "4996479e-4517-4122-9c22-56cf59207ec9",
+    "509c6998-7827-4ae3-87f8-bd9a200ed909",
+    "5b6dfc05-b9bd-4bc9-9117-e672baaa5601",
+    "5cbdda08-ecbb-445c-a3a3-fb043507e8fd",
+    "679aec5d-33f6-44c6-b8bb-2d827db38f94",
+    "6f0a1829-1e1b-416e-9e73-18aa22374a04",
+    "6f578dda-738f-4606-be30-15c7f57d5dba",
+    "7254978a-8362-4766-abc5-6419dc8b0c46",
+    "8ab37217-0773-4acf-8459-6f1052618a9e",
+    "8c9bbd7b-ad77-4f8a-8447-1608eec48189",
+    "8eb5c84e-e929-4840-9a60-13a9a9e0dcde",
+    "9e7cda0d-a107-47c2-94a3-113e06527c35",
+    "a02b8282-78b5-4d8c-aaea-166cbb48e978",
+    "a2c881b6-e46c-4e26-b029-667613a35da9",
+    "aad1a539-65e0-4431-9982-bd0b3b0d0be9",
+    "ac8e3f01-5271-4e3b-b2de-6c1ff08e7233",
+    "c1408b9b-acd1-49b9-a3d6-5d668baf1336",
+    "c37e6b3e-e67f-4c74-bf83-cb1041046da1",
+    "ce3b06a0-69f8-4e58-8be0-dfa4548363fe",
+    "e1fc68d0-32d5-4a1a-86c3-8104e0b3c437",
+    "e2014b6d-3057-41fa-98e6-cd3ffccff431",
+    "e92e6578-8506-4984-b1d4-c5c228527b7f",
+    "f0b449e3-3e2d-4d01-a08e-0d43c3626e58",
+    "f83fcc39-86fb-4917-aa38-89827399df8d",
+    "fd31ae59-17c2-4c8c-b438-f65e5dd8cc61"
+  ],
+  "frames_per_seq": 10,
+  "min_box_speed": 5.0,
+  "min_points_per_box": 30
+}

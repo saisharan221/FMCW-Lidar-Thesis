@@ -1,0 +1,17 @@
+name: ptv3-fmcw-baselines
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - pyyaml
+  - tqdm
+  - pytest
+  - pytest-cov
+  - pip:
+      - omegaconf

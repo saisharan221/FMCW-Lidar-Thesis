@@ -1,0 +1,543 @@
+%----------------------------------------------------------------------------------------
+%
+% LaTeX-template for degree projects at LNU, Department of Computer Science and Media Technology
+% Last updated by Amilcar Soares, Mar 2025
+% Linnaeus University
+%
+% License: Creative Commons BY
+%
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	Settings and configuration
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{dtklogos}
+\usepackage{wallpaper}
+\usepackage[absolute]{textpos}
+\usepackage[top=2cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+\usepackage{appendix}
+\usepackage[nottoc]{tocbibind}
+\usepackage[colorlinks=true,
+            linkcolor=black,
+            urlcolor=blue,
+            citecolor=black]{hyperref}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{14}{15}\selectfont}
+\subsectionfont{\fontsize{12}{15}\selectfont}
+\subsubsectionfont{\fontsize{12}{15}\selectfont}
+
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+
+%----------------------------------------------------------------------------------------
+%
+%----------------------------------------------------------------------------------------
+\newsavebox{\mybox}
+\newlength{\mydepth}
+\newlength{\myheight}
+
+\newenvironment{sidebar}%
+{\begin{lrbox}{\mybox}\begin{minipage}{\textwidth}}%
+{\end{minipage}\end{lrbox}%
+ \settodepth{\mydepth}{\usebox{\mybox}}%
+ \settoheight{\myheight}{\usebox{\mybox}}%
+ \addtolength{\myheight}{\mydepth}%
+ \noindent\makebox[0pt]{\hspace{-20pt}\rule[-\mydepth]{1pt}{\myheight}}%
+ \usebox{\mybox}}
+
+%----------------------------------------------------------------------------------------
+%	Title section
+%----------------------------------------------------------------------------------------
+\newcommand\BackgroundPic{
+    \put(-2,-3){
+    \includegraphics[keepaspectratio,scale=0.3]{img/lnu_etch.png}
+    }
+}
+\newcommand\BackgroundPicLogo{
+    \put(30,740){
+    \includegraphics[keepaspectratio,scale=0.10]{img/logo.png}
+    }
+}
+
+\title{
+\vspace{-8cm}
+\begin{sidebar}
+    \vspace{10cm}
+    \normalfont \normalsize
+    \Huge Bachelors Degree Project \\
+    \vspace{-1.3cm}
+\end{sidebar}
+\vspace{3cm}
+\begin{flushleft}
+    \huge Context-Aware Tangential Velocity Inference for FMCW LiDAR\\
+    \it \LARGE - Inferring 2D Planar Velocity from Radial Doppler Measurements Using Machine Learning
+\end{flushleft}
+\null
+\vfill
+\begin{textblock}{6}(10,12)
+\begin{flushright}
+\begin{minipage}{\textwidth}
+\begin{flushleft} \large
+\emph{Authors:} Suyash Mullick, Saisharan Raja\\
+\emph{Supervisor(s):} Amilcar Soares (LNU), Syargey Prasalovich (Einride)\\
+\emph{Semester:} VT 2026\\
+\emph{Course:} 2DV50E\\
+\emph{Subject:} Computer Science\\
+\end{flushleft}
+\end{minipage}
+\end{flushright}
+\end{textblock}
+}
+
+\date{}
+
+\begin{document}
+\pagenumbering{gobble}
+\newgeometry{left=5cm}
+\AddToShipoutPicture*{\BackgroundPic}
+\AddToShipoutPicture*{\BackgroundPicLogo}
+\maketitle
+\restoregeometry
+\clearpage
+%----------------------------------------------------------------------------------------
+%	Abstract
+%----------------------------------------------------------------------------------------
+\selectlanguage{english}
+\begin{abstract}
+\noindent TODO
+
+\end{abstract}
+\textbf{Keywords}: FMCW LiDAR, Doppler velocity, tangential velocity inference, point cloud deep learning, autonomous driving
+
+
+\newpage
+
+\section*{Preface}
+
+TODO
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+\pagenumbering{gobble}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+
+%----------------------------------------------------------------------------------------
+%
+%	Introduction
+%
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+\label{Introduction}
+
+\noindent\textit{This is a 15 HEC Bachelor's degree project in Computer Science conducted in industry partnership with Einride AB. The work follows a design science methodology and is authored by Suyash Mullick and Saisharan Raja under the supervision of Amilcar Soares (Linnaeus University) and Syargey Prasalovich (Einride).}
+
+\bigskip
+
+Reliable estimation of object velocity is a safety-critical requirement for autonomous vehicles operating in mixed traffic. Frequency-Modulated Continuous-Wave (FMCW) Light Detection and Ranging (LiDAR) sensors are of growing interest for this task because, alongside measuring range, they measure how fast each scanned point is moving towards or away from the sensor through the Doppler effect~\cite{royo2019overview}. This radial speed is informative on its own, but it does not capture sideways motion. A vehicle crossing perpendicular to the sensor's field of view therefore registers as nearly stationary in raw Doppler data despite travelling at full speed, because its motion lies almost entirely in the direction perpendicular to the beam. Yoon et al.~\cite{yoon2023needforspeed} showed that this missing tangential information cannot be recovered from a single FMCW frame by any classical geometric method. A formal treatment of the Doppler signal and the resulting observability constraint is developed in Section~\ref{Background}.
+
+The present study examines whether a physics-constrained machine learning model can recover the 2D planar velocity of objects from single FMCW frames by using learned priors over local geometry, semantic class, and beam configuration. The aim is to address a gap left by scene flow methods, which require temporal context, and by multi-sensor systems, which require hardware beyond a single FMCW sensor.
+
+\subsection{Background}
+
+Several manufacturers, including Aeva Inc., Silc Technologies, and Aurora Innovation, have moved FMCW LiDAR from research prototypes towards commercial 4D sensor platforms. The AevaScenes dataset~\cite{aeva2025aevascenes} is, to the authors' knowledge, the first open-access benchmark for this sensor class. It comprises 100 sequences of 100 frames at 10~Hz from six synchronised FMCW LiDARs (four wide field-of-view units at $110^{\circ}$ and two narrow units at $35^{\circ}$, with range up to 400~m), per-point radial Doppler velocity, per-point semantic labels for 25 classes, and 3D bounding boxes annotated with object-level linear and angular velocity vectors. AevaScenes provides the empirical foundation for the experiments reported in subsequent sections.
+
+\subsection{Related work}
+
+Three bodies of literature are relevant. The first comprises scene flow methods, both supervised (Flow4D~\cite{cho2025flow4d}, DeltaFlow~\cite{zhang2025deltaflow}) and self-supervised (DoGFlow~\cite{khoche2026dogflow}). These methods achieve accurate per-point 3D motion estimation from LiDAR point clouds, but require two or more temporally separated frames. Operating at 10~Hz, they incur a minimum latency of 100~ms and produce no velocity estimate for objects in their first frame of visibility. They define the multi-frame performance ceiling against which RQ2 is evaluated.
+
+The second body of work uses single-frame FMCW data but targets either ego-velocity estimation (Need for Speed~\cite{yoon2023needforspeed}, which also proves that angular velocity is unobservable from a single FMCW frame using classical methods) or object detection (DopplerPTNet~\cite{dopplerptnet2024}). None of these methods recover per-object tangential velocity.
+
+The third body of work consists of velocity-recovery methods. These either fit a radial-consistent velocity via classical geometry (Dynamic-ICP~\cite{dynamicicp2025}) or require multi-sensor fusion to fill the tangential null space (CaRLi-V~\cite{zhou2025carliv} fuses camera, radar, and LiDAR). To the authors' knowledge, no prior work applies machine learning to infer per-point 2D planar velocity from a single FMCW LiDAR frame. Section~\ref{Background} develops each strand in greater detail.
+
+\subsection{Problem formulation}
+
+The related work outlined above leaves one specific question unaddressed: whether the tangential component of object velocity can be inferred from a single FMCW LiDAR frame using a single sensor. The present study investigates this question through the following two research questions.
+
+\begin{description}
+    \item[\textbf{RQ1.}] To what extent can a physics-constrained machine learning model infer the 2D planar velocity vector $\mathbf{v}_{xy} = [v_x, v_y]^\top$ from a single FMCW LiDAR frame containing per-point radial velocity, spatial coordinates, and intensity?
+
+    \item[\textbf{RQ2.}] How does single-frame context-aware velocity inference compare in accuracy to multi-frame scene flow baselines (Flow4D, DeltaFlow, TeFlow), and how large is the performance gap for objects with predominantly tangential motion or for newly-detected objects for which multi-frame methods produce no output?
+\end{description}
+
+\subsection{Motivation}
+
+The motivation for this work has two complementary aspects: a scientific question concerning what can be inferred from a single FMCW measurement, and a practical concern with the safety and latency properties of perception pipelines deployed in autonomous vehicles.
+
+From a scientific perspective, the unobservability result of Yoon et al.~\cite{yoon2023needforspeed} shows that no classical geometric method can recover tangential velocity from a single FMCW frame. It remains an open question whether learned priors over local geometry, semantic class, and beam configuration can compensate for the physically missing information. A positive answer would suggest that single LiDAR frames encode more implicit information about dynamic scene state than the measurement model itself expresses. A characterisation of when recovery fails is also of value: it would help to delineate the information-theoretic limits of this sensor modality and to inform hardware and algorithmic design.
+
+From an applied perspective, a typical hazard scenario in urban driving is a vehicle crossing perpendicular to the sensor field of view, for which $v_r \approx 0$ despite the vehicle travelling at full speed. The vehicle therefore appears nearly stationary in raw Doppler data. Multi-frame methods compound this risk in two ways: at 10~Hz they introduce a minimum latency of 100~ms, and they produce no velocity estimate for objects in their first frame of visibility. Single-frame Doppler inference is, in principle, free of both constraints, since a velocity estimate is available for every visible object at every frame and no additional sensor is required.
+
+\subsection{Contributions}
+
+This study makes three technical contributions. The first is a physics-constrained output representation. The model predicts only the tangential residual $\mathbf{v}_t \perp \hat{\mathbf{r}}_{xy}$ and reconstructs the planar velocity as $\hat{\mathbf{v}}_{xy} = v_r\,\hat{\mathbf{r}}_{xy} + \mathbf{v}_t$, so that sensor physics enters the architecture as a structural inductive bias that the network cannot override. This design aligns directly with the canonical hazard scenario described above: because the network predicts only the missing sideways component and never overrides the measured radial component, it is structurally restricted to recovering exactly the information that crossing vehicles lack, rather than free to invent radial motion that the sensor has not observed.
+
+The second contribution is a ground-truth derivation pipeline that supports a single-frame, per-point planar velocity evaluation on AevaScenes, with Endpoint Error (EPE), Angular Error, and Tangential Error as primary metrics. The third is a comparison with multi-frame scene flow baselines (Flow4D and DeltaFlow), stratified by tangential-to-radial velocity ratio and by first-frame visibility, which is intended to quantify the information cost of removing temporal context.
+
+\subsection{Scope and limitations}
+
+The scope is outdoor autonomous driving at sensor ranges typical of current FMCW LiDAR deployments, up to roughly 250~m for the wide field-of-view units. Training and evaluation are conducted on AevaScenes only. The motion model assumes rigid-body translation, so that all points inside a bounding box share the box's annotated linear velocity; deformable articulations such as pedestrian limb motion are therefore out of scope. Evaluation is offline. Real-time deployment, hardware integration, and latency profiling on production autonomous-vehicle hardware are not considered. Generalisation to FMCW LiDAR sensors other than the Aeva hardware used in AevaScenes is a validity threat that is discussed in Section~\ref{Method}; evaluation on other datasets (Argoverse~2, Waymo with synthetic Doppler) is left for future work. A detailed feature-level analysis of which contextual signals (local geometry, semantic class, beam geometry, object orientation) contribute most to tangential velocity recovery is also deferred.
+
+\subsection{Target group}
+
+The intended readership comprises researchers in autonomous-vehicle perception and 3D computer vision who investigate how Doppler-annotated point clouds can be used for motion understanding, engineers at FMCW LiDAR manufacturers (such as Aeva, Silc, and Aurora) who evaluate the algorithm-level utility of the Doppler channel, and engineers at autonomous-vehicle developers (including freight-automation companies such as Einride) who make sensor-stack trade-off decisions. Readers are assumed to be familiar with point cloud processing and supervised deep learning. Background on FMCW sensing physics, point cloud architectures, and scene flow is developed in Section~\ref{Background}.
+
+\subsection{Outline}
+
+The remainder of the report is organised as follows. Section~\ref{Method} presents the research methodology, including the design science framing, the experimental design, considerations of reliability and validity, and ethical aspects of using a publicly licensed sensor dataset. Section~\ref{Background} develops the theoretical foundations covering FMCW LiDAR signal processing, point cloud deep learning architectures, and scene flow estimation. Section~\ref{Implementation} describes the model architecture, the physics-constrained output layer, the dataset preprocessing pipeline, and the training procedure. Section~\ref{Results} reports the quantitative evaluation on AevaScenes. Section~\ref{Analysis} interprets those results in relation to the two research questions. Section~\ref{Discussion} situates the findings within the related work and discusses threats to validity and limitations. Section~\ref{Conclusions and Future Work} summarises the contributions and identifies directions for further work.
+
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Method
+%
+%----------------------------------------------------------------------------------------
+
+\section{Method}
+\label{Method}
+
+\subsection{Research project}
+
+The study follows a design science research (DSR) methodology~\cite{peffers2007ds}, which is appropriate when the primary research output is a novel computational artefact. In this case the artefact is a physics-constrained machine learning model that infers per-point 2D planar velocity from single-frame FMCW LiDAR data. The six DSR phases (problem identification, objectives, design and development, demonstration, evaluation, and communication) correspond to Sections~\ref{Introduction} through~\ref{Conclusions and Future Work}.
+
+One early design decision merits explicit documentation. The granularity of velocity prediction was refined from object-level to per-point during the design phase, for three reasons. First, FMCW LiDAR provides the Doppler channel at per-point spatial resolution, and object-level aggregation discards the spatial distribution of radial measurements that encodes orientation and velocity-gradient information. Second, the multi-frame scene flow baselines used in RQ2 produce per-point flow vectors, so per-point prediction enables a like-for-like comparison. Third, the physics constraint $\mathbf{v}_t \perp \hat{\mathbf{r}}$ can be applied at each individual beam direction rather than averaged across an object's extent. This refinement is a design-step adjustment within DSR and does not alter either research question.
+
+Nested within DSR, the empirical evaluation follows a controlled experiment design, with fixed dataset splits, pre-specified metrics, and multi-seed training runs. The protocol is described in the following subsections.
+
+\subsection{Research methods}
+
+\subsubsection{Systematic literature review}
+
+A structured search was conducted across IEEE Xplore, the ACM Digital Library, arXiv, and Google Scholar using the query strings \textit{FMCW LiDAR velocity}, \textit{Doppler point cloud}, \textit{scene flow LiDAR}, and \textit{point cloud deep learning}. Papers were retained if they addressed deep learning on 3D LiDAR or radar point clouds, FMCW or Doppler-aided perception, or scene flow estimation. Forty-six papers met the inclusion criteria. Foundational point-cloud deep-learning works are included without year restriction; recent state-of-the-art papers are limited to those published in 2019 or later. The retained corpus is organised into thematic strands and is surveyed in Section~\ref{Background}.
+
+\subsubsection{Controlled experiment}
+
+The empirical core of the study uses AevaScenes~\cite{aeva2025aevascenes}, which is, to the authors' knowledge, the only publicly available benchmark providing real FMCW LiDAR data with per-frame, per-object velocity annotations. The 100 sequences are partitioned into training, validation, and test sets stratified by road type (\textit{highway} vs.\ \textit{city}) and lighting condition (\textit{day} vs.\ \textit{night}), using the per-sequence metadata in \texttt{scene\_info.json}. All models are trained with at least three independent random seeds, and results are reported as mean $\pm$ standard deviation. The evaluation uses three primary metrics, namely Endpoint Error, Angular Error, and Tangential Error; their formal definitions and decompositions are deferred to Section~\ref{Background}, where they can be presented alongside the underlying geometry. The evaluation protocol was fixed before any test-set results were examined.
+
+\subsubsection{Physics-prior ablation}
+
+To evaluate the contribution of the physics-constrained output representation (RQ1), a physics-prior ablation is nested within the controlled experiment. A baseline model that regresses $(v_x, v_y)$ directly, without the tangential decomposition constraint, is compared against the proposed physics-constrained model under identical backbone architecture, learning-rate schedule, data augmentation, and random seeds. The comparison isolates the contribution of the physical prior from other modelling choices.
+
+\subsubsection{Methods considered but not used}
+
+Two alternative methodological directions were considered and rejected. The first is qualitative methods such as surveys, interviews, and case studies. These were rejected on the grounds that the study is a quantitative machine learning investigation that does not involve human subjects, so the data they would generate is not relevant to the research questions.
+
+The second is a purely classical, geometry-based estimator. The motivation for considering this alternative is that the radial component of the velocity is, by construction, a geometric projection of the true 3D velocity onto the beam direction, so a closed-form geometric solver could in principle be considered for the recovery problem. As shown formally in Section~\ref{Background}, however, the tangential component lies in the null space of this projection and is therefore not observable from a single measurement under any classical formulation~\cite{yoon2023needforspeed}. A purely geometric estimator would therefore need either a second frame or a second sensor to constrain the missing degrees of freedom, which is precisely the requirement the present work seeks to avoid. Machine learning is the appropriate methodological choice because the missing degrees of freedom must be supplied by priors (over local geometry, semantic class, and beam configuration) that can be learned from data rather than derived from first principles.
+
+\subsection{Reliability and validity}
+
+Reliability is supported by releasing all preprocessing code, dataset splits, model configurations, and trained weights. Results are aggregated over at least three independent random seeds, so that stable findings can be distinguished from single-seed artefacts.
+
+Internal validity is addressed through the physics-prior ablation. The physics-agnostic MLP baseline uses the same training data, loss function, backbone depth, learning-rate schedule, and augmentation policy as the proposed model. The two differ only in whether the tangential decomposition constraint is applied, which isolates the contribution of the physical prior.
+
+Construct validity is addressed by the choice of metrics, which are defined in Section~\ref{Background} and target three distinct failure modes (overall magnitude error, directional error, and error in the physically unmeasured tangential component). Stratification by tangential-to-radial ratio and by first-frame visibility provides targeted evidence for the hypotheses behind RQ1 and RQ2 respectively.
+
+External validity is the principal threat. AevaScenes was collected with Aeva-specific hardware, so performance may not transfer directly to FMCW sensors from other manufacturers. This limitation is acknowledged in Section~\ref{Introduction} and is left for future work.
+
+\subsection{Ethical considerations}
+
+The study uses only publicly available data and does not involve human subjects, personal data collection, or informed consent procedures. Ethical considerations are therefore limited.
+
+AevaScenes is released under a non-commercial research licence (AevaScenes Dataset License Agreement, 2025) and is used here exclusively for non-commercial academic research. The dataset includes camera streams, but only the LiDAR point cloud is used in this work; no image data is processed or stored. LiDAR point clouds can incidentally record pedestrian positions in 3D, but the point representation does not enable re-identification. The required attribution has been included in the acknowledgements.
+
+Dataset bias is one ethical dimension that warrants explicit comment. AevaScenes represents specific geographic and lighting conditions, and a model trained on it may underperform in scenarios that are underrepresented. This is treated as a generalisation limitation in Section~\ref{Discussion}. No dual-use risk specific to the present work has been identified, since per-point velocity estimation from FMCW LiDAR is a standard autonomous-driving perception capability without plausible surveillance applications beyond those already inherent to the underlying sensor hardware.
+
+Safety is a more substantive ethical dimension, since velocity estimation is consumed by safety-critical components of an autonomous-driving stack. Two failure modes warrant explicit consideration. The first is silent underestimation of the speed of crossing vehicles when contextual cues are weak (for example, under partial occlusion, at long range, or for unusual object orientations). This is the same failure mode that the proposed method is intended to mitigate; however, no learned method is guaranteed to do so in all conditions, and a confident underestimate could be more dangerous than no estimate at all. The second is the propagation of erroneous Doppler measurements. Because the physics-constrained output preserves the measured radial component by construction, a noisy or biased $v_r$ reading is not corrected by the network and propagates directly to the predicted velocity. The model is therefore intended to operate as one component within a redundant perception stack rather than as the sole source of velocity information for any downstream control decision, and any deployment context should treat its output as a hypothesis to be cross-checked against tracking history and other sensors before being acted upon.
+
+
+\newpage
+
+
+%----------------------------------------------------------------------------------------
+%	Theoretical Background
+%
+%----------------------------------------------------------------------------------------
+
+\section{Theoretical background}
+\label{Background}
+
+\subsection{Literature selection methodology}
+
+A structured literature search was conducted across IEEE Xplore, the ACM Digital Library, arXiv, and Google Scholar using four primary query clusters. The first, comprising \textit{FMCW LiDAR velocity} and \textit{Doppler LiDAR perception}, covers sensor-specific literature on radial velocity measurement and its use in perception tasks. The second, \textit{scene flow estimation point cloud}, covers the multi-frame 3D motion estimation literature that supplies the comparison baselines for RQ2. The third, comprising \textit{Doppler velocity recovery} and \textit{tangential velocity estimation}, targets the most direct antecedents to the present objective. The fourth, comprising \textit{point cloud deep learning} and \textit{sparse convolution}, covers backbone architectures.
+
+A paper was retained if it addressed deep learning on 3D LiDAR or radar point clouds, FMCW or Doppler-aided perception, scene flow estimation, or velocity recovery from Doppler data. Foundational architecture works were included without year restriction, while recent state-of-the-art methods were limited to those published in 2019 or later. Work from 2024 to 2026 was sought explicitly. Venue quality (e.g.\ CVPR, ECCV, ICCV, NeurIPS, ICRA, RA-L) was used as a signal of relevance, but not as a strict filter, given that FMCW LiDAR is a relatively recent area of research. The initial survey covered 46 papers across six thematic strands. The present background examines twelve works in depth, namely those whose methods, results, or implications bear most directly on the two research questions. These twelve were selected according to two criteria: methodological overlap (use of Doppler input, attempted velocity recovery, or definition of the multi-frame comparison ceiling), and evaluation on publicly available datasets comparable to AevaScenes.
+
+\subsection{Comparative overview}
+
+Table~\ref{tab:feature_matrix} situates the principal related works with respect to the dimensions that define the contribution of the present study. A work is marked as using Doppler input if it reads per-point radial velocity as an input feature (regardless of sensor type). The label \textit{full velocity} indicates that a method predicts velocity components beyond the measured radial $v_r$; scene-flow methods output full 3D vectors, while the present method outputs the horizontal-plane components $(v_x, v_y)$. The label \textit{per-point} indicates that the output is produced at the individual-point level rather than at the object or cluster level. The label \textit{learned} indicates that the core estimation uses a trained neural network rather than a classical geometric solver. As shown in Table~\ref{tab:feature_matrix}, the present method occupies a previously unfilled cell of this matrix: a single-frame, Doppler-input, per-point, learned approach that uses a single FMCW LiDAR sensor.
+
+\begin{table}[ht]
+\centering
+\caption{Feature comparison of the most relevant related works. Doppler~=~uses per-point radial velocity as input; SF~=~single-frame; Full vel.~=~outputs velocity beyond the measured radial (3D for scene-flow methods; $(v_x,v_y)$ for ours); PP~=~per-point granularity; ML~=~learned model. ($\dagger$)~radar Doppler from a separate sensor. ($\ddagger$)~predicts $xy$-plane only.}
+\label{tab:feature_matrix}
+\small
+\begin{tabular}{l c c c c c}
+\toprule
+Method & Doppler & SF & Full vel. & Per-pt & ML \\
+\midrule
+Flow4D~\cite{cho2025flow4d}                     & No            & No  & Yes & Yes & Yes \\
+DeltaFlow~\cite{zhang2025deltaflow}              & No            & No  & Yes & Yes & Yes \\
+DoGFlow~\cite{khoche2026dogflow}                 & Yes$^\dagger$ & No  & Yes & Yes & Yes \\
+Need for Speed~\cite{yoon2023needforspeed}       & Yes           & Yes & No  & No  & No  \\
+DopplerPTNet~\cite{dopplerptnet2024}             & Yes           & Yes & No  & No  & Yes \\
+Dynamic-ICP~\cite{dynamicicp2025}                & Yes           & Yes & No  & No  & No  \\
+POD~\cite{pod2025}                               & Yes           & Yes & No  & No  & Yes \\
+CaRLi-V~\cite{zhou2025carliv}                   & Yes$^\dagger$ & Yes & Yes & Yes & No  \\
+\midrule
+\textbf{Ours} & \textbf{Yes} & \textbf{Yes} & \textbf{Yes}$^\ddagger$ & \textbf{Yes} & \textbf{Yes} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{FMCW LiDAR and the radial observability constraint}
+
+The radial velocity channel of FMCW LiDAR is governed by
+\begin{equation}
+    v_r = \mathbf{v} \cdot \hat{\mathbf{r}},
+    \label{eq:doppler}
+\end{equation}
+where $\mathbf{v} \in \mathbb{R}^3$ is the true 3D velocity of the scanned target and $\hat{\mathbf{r}}$ is the unit vector from the sensor origin to the point. The two-dimensional tangential subspace orthogonal to $\hat{\mathbf{r}}$,
+\begin{equation}
+    \mathbf{v}_t = \mathbf{v} - (\mathbf{v} \cdot \hat{\mathbf{r}})\,\hat{\mathbf{r}},
+    \label{eq:tangential_subspace}
+\end{equation}
+contributes no frequency shift and is therefore invisible to the sensor. For a vehicle crossing the sensor field of view perpendicularly, $\hat{\mathbf{r}} \perp \mathbf{v}$ and $v_r \approx 0$ despite the vehicle moving at full speed. Recovering $\mathbf{v}$ from a single $v_r$ measurement is therefore under-constrained by two degrees of freedom per point. In practice, road vehicles operate predominantly in a horizontal plane, so the vertical component $v_z$ is negligible. Restricting prediction to the $xy$-plane projection $\mathbf{v}_{xy} = (v_x, v_y)$ reduces the effective unknown to one degree of freedom per point, namely the tangential scalar that the proposed method recovers.
+
+Yoon et al.~\cite{yoon2023needforspeed} formalised this constraint through an observability analysis. In the ego-velocity estimation context, angular velocity components are unobservable from a single FMCW frame under any classical geometric formulation. The same conclusion extends to per-object velocity: the tangential subspace $\mathbf{v}_t$ cannot be determined from $v_r$ alone without additional spatial priors. The recovery problem is nonetheless not intractable in principle. Learned spatial and semantic context drawn from geometric neighbourhoods, object orientation cues, and beam configuration may supply the missing degrees of freedom that the measurement model itself does not provide.
+
+One practical implementation point should be noted. The AevaScenes dataset~\cite{aeva2025aevascenes} stores ego-motion-compensated Doppler velocity with the convention that a positive $v_r$ indicates a \textit{receding} target, that is, one with increasing range. This convention was verified empirically against the annotated bounding-box velocities on 30 sequences prior to baseline evaluation; the mean residual was 1.18~m/s under the receding hypothesis, compared with 29.84~m/s under the opposite hypothesis. The convention is taken into account during preprocessing (see Section~\ref{Implementation}).
+
+\subsection{Point-cloud deep learning}
+
+The proposed model requires a backbone that processes a 4D input $(x, y, z, v_r)$ at the density typical of single-frame outdoor LiDAR scans and produces per-point output features. Point Transformer~V3 (PTv3)~\cite{wu2024pointtransformerv3} satisfies these requirements. PTv3 avoids precise neighbour search within fixed-radius balls, which is a bottleneck of earlier point-based and transformer methods. Instead, it serialises the point cloud along a space-filling curve (Z-order or Hilbert) and applies masked self-attention within consecutive windows along the serialisation order. This change expands the effective receptive field from the 16 to 32 points typical of local ball-query methods to more than 1{,}024 points, while keeping the cost per window at $O(K \log K)$ rather than $O(N^2)$. On three standard 3D understanding benchmarks, Wu et al.~\cite{wu2024pointtransformerv3} report state-of-the-art accuracy and a roughly threefold speedup over Point Transformer~V2. The Doppler channel $v_r$ is included as a fourth input feature alongside the spatial coordinates; no architectural modification is required, since PTv3 processes point features of arbitrary dimensionality.
+
+\subsection{Key related work by strand}
+
+Each of the methods discussed below is described in three steps: what it does, what it achieves, and why it does not by itself answer the question posed in the present study.
+
+\subsubsection{Scene flow}
+
+Flow4D~\cite{cho2025flow4d} lifts $N$ temporally separated LiDAR frames into a 4D voxel grid indexed by $(x, y, z, t)$, applies a sparse 4D convolutional backbone, and produces per-point 3D flow vectors from the fused spatio-temporal features. At the 2024 Argoverse~2 Scene Flow Challenge it achieved an EPE improvement of approximately 45.9\% over the prior best baseline. It therefore serves as the supervised multi-frame performance ceiling for RQ2. The method nonetheless requires at least two input frames and discards the per-point Doppler channel, so it cannot be applied to single-frame planar velocity inference.
+
+DeltaFlow~\cite{zhang2025deltaflow} (NeurIPS 2025 Spotlight) refines Flow4D using a \textit{delta scheme} that encodes each frame relative to the most recent one. Reported gains include a further 22\% reduction in EPE and roughly twofold faster inference. Because DeltaFlow generalises well across domains, any gap observed on AevaScenes is more plausibly attributable to a genuine single-frame information deficit than to a domain-adaptation artefact. Like Flow4D, however, it requires multiple input frames, incurs a latency floor of approximately 100~ms at 10~Hz, and produces no velocity estimate for objects in their first frame of visibility.
+
+\subsubsection{Doppler exploitation}
+
+Need for Speed~\cite{yoon2023needforspeed} derives a closed-form linear estimator for the 6-DOF ego-velocity from per-point Doppler measurements. The estimator solves an overdetermined system in 5.64~ms per frame and does not require frame-to-frame correspondence. The paper's central theoretical contribution is an observability analysis showing that angular velocity is unobservable from a single FMCW LiDAR regardless of point count. This impossibility result is precisely what motivates a learning-based approach to tangential velocity recovery, since classical geometry alone cannot supply the missing degrees of freedom.
+
+DopplerPTNet~\cite{dopplerptnet2024} extends PointRCNN for FMCW LiDAR by treating sensor output as a 4D point cloud $(x, y, z, v_r)$, using 4D farthest-point sampling together with Doppler-aware attention. To the authors' knowledge, it is the first learned method to treat $v_r$ as a first-class input feature. Its results provide indirect support for the use of radial velocity as a learnable signal. The method targets object detection rather than velocity estimation, however, so it does not produce per-point velocity output.
+
+DoGFlow~\cite{khoche2026dogflow} uses cluster-level Doppler velocity estimates from a co-mounted radar as pseudo-labels for self-supervised LiDAR scene flow training. The reported accuracy is approximately 90\% of fully-supervised performance. Quantitatively, this indicates that radial Doppler carries enough information to supervise dense 3D motion estimation, which is a useful precondition for the feasibility of single-frame tangential inference. DoGFlow still requires multi-frame LiDAR input and a separate radar sensor at test time, and so does not address the single-sensor, single-frame problem.
+
+\subsubsection{Velocity recovery}
+
+Dynamic-ICP~\cite{dynamicicp2025} identifies dynamic clusters by their Doppler inconsistency with estimated ego-motion and fits a constant-velocity rigid-body model per cluster on a single FMCW frame. It is evaluated on AevaScenes. Because the fit minimises radial residuals, it systematically underestimates the speed of laterally-moving objects. This property makes it a natural non-learned baseline whose shortfall is informative about the contribution of learned spatial priors, but it is not in itself a solution to the tangential recovery problem.
+
+POD~\cite{pod2025} uses single-frame FMCW Doppler for predictive detection by displacing each point by $v_r$ along the beam direction, thereby generating a virtual future point cloud. The reported results indicate that single-frame Doppler can support motion-aware perception in practice. The displacement is strictly radial, however, and leaves transversely-moving objects undisplaced; this shortcoming corresponds to the gap that the present study seeks to address.
+
+CaRLi-V~\cite{zhou2025carliv} obtains fully-determined per-point 3D velocity through closed-form fusion of imaging-radar radial velocity, camera optical flow back-projected via LiDAR depth, and LiDAR geometry. The method establishes a useful upper bound on the planar velocity output that the present study targets. It does so at the cost of three sensors (camera, radar, and LiDAR), with the associated calibration and synchronisation overhead, and therefore does not satisfy the single-sensor constraint adopted here.
+
+\subsection{Evaluation protocols and datasets}
+
+\subsubsection{Scene flow metrics}
+
+Endpoint Error (EPE) is the mean Euclidean distance between predicted and ground-truth velocity vectors, computed over all points. Angular Error (AE) is the angle between predicted and ground-truth velocity direction vectors, which captures directional fidelity independently of speed magnitude. Used together, EPE and AE summarise prediction quality in both magnitude and direction.
+
+\subsubsection{Tangential Error}
+
+The present work introduces Tangential Error (TE) as a metric that isolates performance on the physically unmeasured component:
+\begin{equation}
+    \mathrm{TE}(\mathbf{p}) = \bigl\| \mathbf{v}_t^{\mathrm{pred}}(\mathbf{p}) - \mathbf{v}_t^{\mathrm{gt}}(\mathbf{p}) \bigr\|_2, \quad \mathbf{v}_t = \mathbf{v}_{xy} - (\mathbf{v}_{xy} \cdot \hat{\mathbf{r}}_{xy})\,\hat{\mathbf{r}}_{xy},
+    \label{eq:tangential_error}
+\end{equation}
+where $\hat{\mathbf{r}}_{xy}$ is the unit beam direction projected onto the $xy$ plane at point $\mathbf{p}$, and $\mathbf{v}_{xy} = (v_x, v_y)$ is the predicted or ground-truth planar velocity. A physics-constrained model that does not override the measured $v_r$ has near-zero radial error by construction. Its TE therefore reflects the difficulty of the actual learning problem. EPE and TE are also reported stratified by tangential-to-radial velocity ratio (which isolates high-tangential objects such as crossing traffic) and by whether a prior frame exists for the object in question. The two stratifications correspond to the hypotheses behind RQ1 and RQ2 respectively.
+
+\subsubsection{Derived metrics}
+
+The mean of $\mathrm{TE}(\mathbf{p})$ over a set of evaluation points is denoted EPE$_t$. The corresponding mean radial error, $\overline{\|\mathbf{v}_r^{\mathrm{pred}} - \mathbf{v}_r^{\mathrm{gt}}\|_2}$, is denoted EPE$_r$. Results are further partitioned by motion status: EPE$_\mathrm{dyn}$ is averaged over points for which $\|\mathbf{v}^{\mathrm{gt}}\|_2 > 0.5$~m/s (dynamic objects), and EPE$_\mathrm{bg}$ over the remaining background points. These four quantities are the primary metrics reported in Section~\ref{Results}.
+
+\subsubsection{Benchmark dataset}
+
+AevaScenes~\cite{aeva2025aevascenes} is, to the authors' knowledge, the only publicly available dataset that provides real FMCW LiDAR data with per-frame, per-object velocity annotations. Other large-scale autonomous-driving datasets, including Argoverse~2~\cite{wilson2023argoverse2}, Waymo~\cite{sun2020waymo}, and ZOD~\cite{alibeigi2023zod}, use time-of-flight LiDAR and provide no Doppler channel. View-of-Delft~\cite{palffy2022vod} provides radar Doppler but not FMCW LiDAR Doppler. AevaScenes is therefore the exclusive evaluation dataset used in the present work.
+
+\subsubsection{Frame convention}
+
+Throughout this work, point coordinates are expressed in the AevaScenes \emph{vehicle frame}, with origin at the rear axle and axes aligned with the ego vehicle. Velocity values, both the per-point Doppler reading $v_r$ and the per-point ground-truth label $\mathbf{v}^{\mathrm{gt}}$, follow the AevaScenes convention of being \emph{ego-motion compensated}: ego motion has been subtracted, so each value represents the motion of the scanned point as observed from a stationary inertial frame, but expressed in the instantaneous vehicle axes. Under this convention, a stationary tree, a parked car, or any other static element of the scene has $\mathbf{v}^{\mathrm{gt}} = \mathbf{0}$ and $v_r \approx 0$ regardless of the ego vehicle's speed, while moving objects carry their inertial-frame velocity. This is the convention assumed by the physics constraint $\hat{\mathbf{v}}_{xy} = v_r\,\hat{\mathbf{r}}_{xy} + \mathbf{v}_t$ used in subsequent sections.
+
+\subsubsection{Ground-truth derivation}
+
+AevaScenes does not store per-point velocity as a native field, so it is derived from the bounding-box annotations~\cite{aeva2025aevascenes}. The pipeline used here, which is described in full in Section~\ref{Implementation}, proceeds in three steps. First, each point cloud is lifted from the sensor frame to the vehicle frame using the per-sensor extrinsic transform. Second, for each annotated dynamic object, a point is assigned the object's annotated \texttt{linear\_velocity} (combined with its annotated \texttt{angular\_velocity} as in equation~\eqref{eq:gt_velocity}) if and only if it lies inside the oriented 3D bounding box. The containment test rotates the relative position vector by the inverse box rotation quaternion and compares the result to the box half-extents. Third, points that fall outside every annotated box are assigned $\mathbf{v}^{\mathrm{gt}} = \mathbf{0}$. No finite differencing of ego-pose matrices is required: because the AevaScenes velocity field is ego-motion compensated, the static scene already has $\mathbf{v}^{\mathrm{gt}} = \mathbf{0}$ in the vehicle frame by construction. The procedure yields a dense per-point velocity field at the native resolution of the FMCW LiDAR. The label used for training and evaluation is its $xy$ projection, $(v_x^{\mathrm{gt}}, v_y^{\mathrm{gt}})$.
+
+In summary, the literature surveyed in this section does not, to the authors' knowledge, contain a method that combines single-sensor and single-frame acquisition with learned contextual priors and per-point 2D planar velocity prediction from FMCW LiDAR. The physics-constrained architecture described in Section~\ref{Implementation} is intended to occupy this intersection.
+
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	Research Project -- Implementation.
+%
+%----------------------------------------------------------------------------------------
+
+\section{Research project: implementation}
+\label{Implementation}
+
+\subsection{Dataset and splits}
+\label{DatasetSplits}
+
+All experiments use AevaScenes~v0.2~\cite{aeva2025aevascenes}, which is, to the authors' knowledge, the only publicly available dataset providing real FMCW LiDAR recordings with per-frame, per-object velocity annotations. The dataset comprises 100 sequences (10{,}000 frames at 10~Hz) across four scene conditions: 30 sequences of city/day, 30 of highway/day, 20 of city/night, and 20 of highway/night. A scene-level split is used throughout, in order to prevent temporal leakage between training and validation. The validation partition used for all quantitative evaluation reported in this study spans 1{,}400 frames. The class-mean velocities used by baselines B2 and B3 are fitted on a separate 1{,}500-frame training partition. A point is classified as \emph{dynamic} if its ground-truth speed $\|\mathbf{v}^{\mathrm{gt}}\|_2 > 0.5$~m/s. Under this threshold, the validation partition contains 213{,}706 dynamic points out of approximately 118.98 million in total.
+
+\subsection{Ground-truth velocity construction}
+\label{GTVelocity}
+
+All ground-truth values follow the frame convention defined in Section~\ref{Background}: vehicle-frame coordinates and ego-motion-compensated velocity values, so that any static element of the scene has $\mathbf{v}^{\mathrm{gt}} = \mathbf{0}$ by construction. Per-point ground truth is derived from the bounding-box annotations as follows. For each annotated object, the velocity at a contained point $\mathbf{p}$ is
+\begin{equation}
+    \mathbf{v}^{\mathrm{gt}} = \mathbf{v}_{\mathrm{lin}} + \boldsymbol{\omega} \times (\mathbf{p} - \mathbf{c}),
+    \label{eq:gt_velocity}
+\end{equation}
+where $\mathbf{v}_{\mathrm{lin}}$ and $\boldsymbol{\omega}$ are the box's annotated linear and angular velocities and $\mathbf{c}$ is its centre. Since angular velocity is structurally unobservable from a single FMCW frame~\cite{yoon2023needforspeed}, $\boldsymbol{\omega}$ is taken directly from the dataset annotations rather than estimated. Points that fall outside every annotated box are assigned $\mathbf{v}^{\mathrm{gt}} = \mathbf{0}$, consistent with the ego-motion-compensated convention. When a point lies inside two overlapping boxes, the smaller box (by volume) takes precedence. The training and evaluation label is the $xy$ projection $\mathbf{v}^{\mathrm{gt}}_{xy} = (v_x^{\mathrm{gt}}, v_y^{\mathrm{gt}})$. The vertical component $v_z^{\mathrm{gt}}$ is discarded, since road vehicles operate predominantly in a horizontal plane and the magnitudes induced by vertical dynamics (such as suspension travel and road undulation) are small relative to the horizontal velocities in AevaScenes. The Doppler sign convention (positive $v_r$ corresponds to a receding target) is verified empirically, as described in Section~\ref{Background}.
+
+\subsection{Baselines (B0--B3)}
+\label{BaselinesImpl}
+
+Four non-ML baselines are used to bracket the difficulty of the tangential inference task and to define the lower bounds against which RQ1 is assessed.
+
+The first baseline, B0 (\emph{zero}), sets $\hat{\mathbf{v}} = (0, 0)$ for all points. It serves as a trivial predictor that quantifies the gain achievable by exploiting any signal above chance.
+
+The second baseline, B1 (\emph{Doppler-only}), sets $\hat{\mathbf{v}} = v_r\,\hat{\mathbf{r}}_{xy}$, where $\hat{\mathbf{r}}_{xy}$ is the unit beam direction projected onto the $xy$ plane. B1 uses only the directly measured radial component and assigns zero tangential velocity. It therefore provides an upper bound on the performance of any architecture that merely reproduces the Doppler reading. A learned model must improve on B1 in EPE$_t$ for RQ1 to be supported.
+
+The third baseline, B2 (\emph{class-mean}), sets $\hat{\mathbf{v}} = \boldsymbol{\mu}_c$, where $\boldsymbol{\mu}_c$ is the mean ground-truth velocity of semantic class $c$, fitted over all class points in the training partition. Parked and moving instances are pooled, so the mean is diluted towards zero for mixed classes such as \textit{car}. Ground-truth class labels are used at test time, in order to isolate the velocity prediction problem from perception errors.
+
+The fourth baseline, B3 (\emph{Doppler + class-tangent}), is the strongest non-ML baseline. It takes the radial component from the Doppler measurement and the tangential component from the class-mean tangent:
+\begin{equation}
+    \hat{\mathbf{v}} = v_r\,\hat{\mathbf{r}}_{xy} + \bigl(\boldsymbol{\mu}_c - (\boldsymbol{\mu}_c \cdot \hat{\mathbf{r}}_{xy})\,\hat{\mathbf{r}}_{xy}\bigr).
+    \label{eq:b3}
+\end{equation}
+A learned model must achieve EPE$_\mathrm{dyn}$ below the value attained by B3 for RQ1 to be supported.
+
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	Results
+%----------------------------------------------------------------------------------------
+
+\section{Results}
+\label{Results}
+
+Table~\ref{tab:t1_baselines} reports EPE$_\mathrm{dyn}$, EPE$_t$, EPE$_r$, and mean absolute angular error for all four baselines on the 1{,}400-frame validation split (213{,}706 dynamic points). B1 reduces EPE$_\mathrm{dyn}$ by approximately 53\% relative to the zero baseline (from 8.25 to 3.87~m/s) by exploiting the measured radial component. B3 yields only a marginal further improvement, from 3.87 to 3.70~m/s, which suggests that class-mean tangential priors contribute little on average. EPE$_t$ is unchanged between B0 and B1 (3.14~m/s in both cases) and is only modestly reduced by the class-mean term in B3 (to 3.00~m/s). This pattern is consistent with the hypothesis that tangential velocity cannot be recovered to a useful degree without contextual learning. The large angular error of B1 and B3, at approximately 45 degrees, indicates that even after Doppler alignment the predicted direction is close to arbitrary on average. Table~\ref{tab:t2_perclass} reports EPE$_t$ disaggregated by semantic class. Bus and car classes show the largest absolute tangential residuals under B1 (11.71 and 9.95~m/s respectively), which is consistent with the high-speed and direction-variable behaviour typical of these classes.
+
+\begin{table}[h]
+\centering
+\caption{Non-ML baseline results on the AevaScenes~v0.2 validation split (1{,}400 frames, 213{,}706 dynamic points, $\|\mathbf{v}^{\mathrm{gt}}\|_2 > 0.5$~m/s). Values in m/s except angular error (degrees). $\downarrow$~lower is better; \textbf{bold} marks best per column.}
+\label{tab:t1_baselines}
+\small
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Method} & \textbf{EPE$_\mathrm{dyn}$~$\downarrow$} & \textbf{EPE$_t$~$\downarrow$} & \textbf{EPE$_r$~$\downarrow$} & \textbf{$|\Delta\theta|$ (°)~$\downarrow$} \\
+\midrule
+B0 (Zero)                  & 8.25 & 3.14 & 7.28 & n/a  \\
+B1 (Doppler-only)          & 3.87 & 3.14 & \textbf{1.29} & 45.5 \\
+B2 (Class-mean)            & 9.47 & \textbf{3.00} & 8.65 & 86.0 \\
+B3 (Dop.~+~class-tan)      & \textbf{3.70} & \textbf{3.00} & \textbf{1.29} & 45.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Per-class EPE$_t$ (m/s) for B1 and B3 on the validation split. Classes with fewer than 500 dynamic points are omitted. Pedestrian and bicycle classes have zero dynamic points in this split under the 0.5~m/s threshold. $\downarrow$~lower is better.}
+\label{tab:t2_perclass}
+\small
+\begin{tabular}{lcc}
+\toprule
+\textbf{Class} & \textbf{B1 EPE$_t$~$\downarrow$} & \textbf{B3 EPE$_t$~$\downarrow$} \\
+\midrule
+Bus              & 11.71 & 11.96 \\
+Car              &  9.95 &  9.94 \\
+Unknown          &  3.88 &  3.88 \\
+Vehicle on rails &  3.61 &  3.61 \\
+Trailer          &  3.34 &  3.34 \\
+Truck            &  1.73 &  1.84 \\
+Traffic sign     &  1.24 &  1.24 \\
+Pole / trunk     &  1.15 &  1.15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	Analysis.
+%----------------------------------------------------------------------------------------
+
+\section{Analysis}
+\label{Analysis}
+
+\subsection{Success criteria for RQ1}
+
+For a single-frame ML model to be considered successful on RQ1, it must achieve EPE$_t$ below the B1 floor of 3.14~m/s and EPE$_\mathrm{dyn}$ below the B3 floor of 3.70~m/s on the validation split. EPE$_r$ is not used as a primary target. The Doppler channel measures radial velocity directly and a physics-constrained architecture preserves it by construction; the residual radial error of B1 (1.29~m/s) is best interpreted as sensor noise and annotation discretisation rather than a learnable gap.
+
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	Discussion
+%----------------------------------------------------------------------------------------
+
+\section{Discussion}
+\label{Discussion}
+
+TODO
+
+
+\newpage
+%----------------------------------------------------------------------------------------
+%	Conclusions and Future Work
+%----------------------------------------------------------------------------------------
+
+\section{Conclusions and future work}
+\label{Conclusions and Future Work}
+
+TODO
+
+
+%----------------------------------------------------------------------------------------
+%	References.
+%----------------------------------------------------------------------------------------
+\newpage
+
+\hypersetup{urlcolor=black}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+\newpage
+%----------------------------------------------------------------------------------------
+%	Appendix
+%-----------------------------------------------------------------------------------------
+
+\pagenumbering{Alph}
+\setcounter{page}{1}
+\appendix
+
+\section{Appendix 1}
+
+TODO
+
+\end{document}

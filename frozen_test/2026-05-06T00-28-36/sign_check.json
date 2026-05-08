@@ -1,0 +1,8 @@
+{
+  "stationary_mean_abs_v_radial": 0.08235971242189408,
+  "receding_cars_mean_v_radial": NaN,
+  "approaching_cars_mean_v_radial": NaN,
+  "n_stationary_frames": 50,
+  "n_receding_box_samples": 0,
+  "n_approaching_box_samples": 0
+}

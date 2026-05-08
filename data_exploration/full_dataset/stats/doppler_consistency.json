@@ -1,0 +1,234 @@
+{
+  "decomp_per_class": {
+    "car": {
+      "n": 376969,
+      "speed_median_mps": 5.6539706571534065,
+      "speed_p95_mps": 32.45333328423564,
+      "ratio_t_mean": 0.4823127008172696,
+      "ratio_t_median": 0.40088179212709385,
+      "ratio_t_p95": 0.9950029236849504,
+      "ratio_t_above_0.5": 0.45935076889611615,
+      "ratio_t_above_0.9": 0.23527929352280957
+    },
+    "bus": {
+      "n": 4767,
+      "speed_median_mps": 11.425892097766807,
+      "speed_p95_mps": 32.26516955285447,
+      "ratio_t_mean": 0.29955859122056366,
+      "ratio_t_median": 0.1623901295190402,
+      "ratio_t_p95": 0.9773162282725663,
+      "ratio_t_above_0.5": 0.22844556324732537,
+      "ratio_t_above_0.9": 0.10027270820222361
+    },
+    "pedestrian": {
+      "n": 43388,
+      "speed_median_mps": 0.9998312992457441,
+      "speed_p95_mps": 1.8881758438451952,
+      "ratio_t_mean": 0.7392561729696445,
+      "ratio_t_median": 0.8306938740679011,
+      "ratio_t_p95": 0.9983702236231052,
+      "ratio_t_above_0.5": 0.7945745367382686,
+      "ratio_t_above_0.9": 0.39485572047570755
+    },
+    "other_vehicle": {
+      "n": 1398,
+      "speed_median_mps": 0.83857233081666,
+      "speed_p95_mps": 17.685510594618925,
+      "ratio_t_mean": 0.6651222303887809,
+      "ratio_t_median": 0.7887502078890065,
+      "ratio_t_p95": 0.9959027284519736,
+      "ratio_t_above_0.5": 0.6738197424892703,
+      "ratio_t_above_0.9": 0.3333333333333333
+    },
+    "bicycle": {
+      "n": 6160,
+      "speed_median_mps": 0.35125115071009994,
+      "speed_p95_mps": 5.493312496375805,
+      "ratio_t_mean": 0.7424979037503867,
+      "ratio_t_median": 0.8416941846539138,
+      "ratio_t_p95": 0.9930460864981165,
+      "ratio_t_above_0.5": 0.8219155844155844,
+      "ratio_t_above_0.9": 0.3503246753246753
+    },
+    "truck": {
+      "n": 12854,
+      "speed_median_mps": 7.267978671794582,
+      "speed_p95_mps": 30.787933661319936,
+      "ratio_t_mean": 0.41191691338943714,
+      "ratio_t_median": 0.26127535037347593,
+      "ratio_t_p95": 0.9921936820626357,
+      "ratio_t_above_0.5": 0.3610549245371091,
+      "ratio_t_above_0.9": 0.17955500233390384
+    },
+    "trailer": {
+      "n": 1795,
+      "speed_median_mps": 5.647852637322197,
+      "speed_p95_mps": 25.776897229577088,
+      "ratio_t_mean": 0.4908961418747468,
+      "ratio_t_median": 0.4068856419960168,
+      "ratio_t_p95": 0.9931043150568465,
+      "ratio_t_above_0.5": 0.42618384401114207,
+      "ratio_t_above_0.9": 0.1671309192200557
+    },
+    "motorcyclist": {
+      "n": 326,
+      "speed_median_mps": 13.394644504746484,
+      "speed_p95_mps": 52.717655822485604,
+      "ratio_t_mean": 0.1827597200047347,
+      "ratio_t_median": 0.14190782855229983,
+      "ratio_t_p95": 0.5816886654842833,
+      "ratio_t_above_0.5": 0.06134969325153374,
+      "ratio_t_above_0.9": 0.012269938650306749
+    },
+    "motorcycle": {
+      "n": 909,
+      "speed_median_mps": 0.9215077962095424,
+      "speed_p95_mps": 44.46486703269913,
+      "ratio_t_mean": 0.5539803864969561,
+      "ratio_t_median": 0.7427947598504749,
+      "ratio_t_p95": 0.9876473076393514,
+      "ratio_t_above_0.5": 0.5555555555555556,
+      "ratio_t_above_0.9": 0.3025302530253025
+    },
+    "bicyclist": {
+      "n": 2090,
+      "speed_median_mps": 4.032817519156779,
+      "speed_p95_mps": 7.554978529215488,
+      "ratio_t_mean": 0.5039967719237565,
+      "ratio_t_median": 0.45087553885963927,
+      "ratio_t_p95": 0.9917721880203324,
+      "ratio_t_above_0.5": 0.47751196172248805,
+      "ratio_t_above_0.9": 0.18564593301435406
+    },
+    "vehicle_on_rails": {
+      "n": 547,
+      "speed_median_mps": 5.536232795403766,
+      "speed_p95_mps": 20.089185918576938,
+      "ratio_t_mean": 0.6129930346082849,
+      "ratio_t_median": 0.6112844499649163,
+      "ratio_t_p95": 0.9927333674801682,
+      "ratio_t_above_0.5": 0.7111517367458866,
+      "ratio_t_above_0.9": 0.16087751371115175
+    }
+  },
+  "decomp_per_scene": {
+    "city|day": {
+      "n": 188064,
+      "ratio_t_mean": 0.7239842355396933,
+      "ratio_t_median": 0.8604309385724114,
+      "ratio_t_above_0.5": 0.7690307554874937
+    },
+    "highway|day": {
+      "n": 197360,
+      "ratio_t_mean": 0.2895629235360574,
+      "ratio_t_median": 0.1654918298116902,
+      "ratio_t_above_0.5": 0.2102857721929469
+    },
+    "city|night": {
+      "n": 38609,
+      "ratio_t_mean": 0.7001149229116101,
+      "ratio_t_median": 0.8259207616549061,
+      "ratio_t_above_0.5": 0.7399311041467016
+    },
+    "highway|night": {
+      "n": 27170,
+      "ratio_t_mean": 0.3171478490648037,
+      "ratio_t_median": 0.1751356572170477,
+      "ratio_t_above_0.5": 0.27055576002944426
+    }
+  },
+  "consistency_per_class": {
+    "car": {
+      "n_box_lidar_pairs": 14662,
+      "resid_median_of_medians": 0.0340919827461903,
+      "resid_median_abs_median": 0.35952365355812244,
+      "resid_std_median": 0.1577459759522447,
+      "resid_p95_abs_median": 0.6472179803331463,
+      "resid_p95_abs_p95": 14.997869660246382
+    },
+    "bus": {
+      "n_box_lidar_pairs": 309,
+      "resid_median_of_medians": 0.009126953448365782,
+      "resid_median_abs_median": 0.3096453360417648,
+      "resid_std_median": 0.24584173996917807,
+      "resid_p95_abs_median": 0.5794041515434157,
+      "resid_p95_abs_p95": 6.832665802555178
+    },
+    "pedestrian": {
+      "n_box_lidar_pairs": 2302,
+      "resid_median_of_medians": 0.014972582228909403,
+      "resid_median_abs_median": 0.21096551076886788,
+      "resid_std_median": 0.14876810535570223,
+      "resid_p95_abs_median": 0.5207892210923837,
+      "resid_p95_abs_p95": 1.3699728877494817
+    },
+    "other_vehicle": {
+      "n_box_lidar_pairs": 69,
+      "resid_median_of_medians": -0.027445161072910784,
+      "resid_median_abs_median": 0.2556479250169771,
+      "resid_std_median": 0.09631454964063596,
+      "resid_p95_abs_median": 0.402881579561352,
+      "resid_p95_abs_p95": 1.0476576630732395
+    },
+    "bicycle": {
+      "n_box_lidar_pairs": 154,
+      "resid_median_of_medians": -0.049545258110606435,
+      "resid_median_abs_median": 0.2828337726853074,
+      "resid_std_median": 0.1185469443780235,
+      "resid_p95_abs_median": 0.5179458662405849,
+      "resid_p95_abs_p95": 2.3974955224519054
+    },
+    "truck": {
+      "n_box_lidar_pairs": 726,
+      "resid_median_of_medians": 0.03943373230397117,
+      "resid_median_abs_median": 0.39413781614066756,
+      "resid_std_median": 0.18638292062486447,
+      "resid_p95_abs_median": 0.694976550533184,
+      "resid_p95_abs_p95": 11.675923183095714
+    },
+    "trailer": {
+      "n_box_lidar_pairs": 105,
+      "resid_median_of_medians": 0.14079844931366237,
+      "resid_median_abs_median": 0.4106440835960572,
+      "resid_std_median": 0.19600649545201898,
+      "resid_p95_abs_median": 0.6591594401736688,
+      "resid_p95_abs_p95": 6.45277726938023
+    },
+    "motorcyclist": {
+      "n_box_lidar_pairs": 10,
+      "resid_median_of_medians": -0.018280056273738854,
+      "resid_median_abs_median": 0.23525194498692947,
+      "resid_std_median": 0.24307603533702465,
+      "resid_p95_abs_median": 0.48601416128634967,
+      "resid_p95_abs_p95": 16.49050207131949
+    },
+    "motorcycle": {
+      "n_box_lidar_pairs": 42,
+      "resid_median_of_medians": -0.15818348907431568,
+      "resid_median_abs_median": 0.29075101882161664,
+      "resid_std_median": 0.0931388719971318,
+      "resid_p95_abs_median": 0.4856134008555232,
+      "resid_p95_abs_p95": 2.861251804650461
+    },
+    "bicyclist": {
+      "n_box_lidar_pairs": 123,
+      "resid_median_of_medians": 0.0834819870909039,
+      "resid_median_abs_median": 0.210778973520088,
+      "resid_std_median": 0.12417505992111492,
+      "resid_p95_abs_median": 0.4937779966319236,
+      "resid_p95_abs_p95": 1.0113166733187127
+    },
+    "vehicle_on_rails": {
+      "n_box_lidar_pairs": 47,
+      "resid_median_of_medians": -0.10918054231336094,
+      "resid_median_abs_median": 0.20355688031886177,
+      "resid_std_median": 0.1309573364014525,
+      "resid_p95_abs_median": 0.3947477173671084,
+      "resid_p95_abs_p95": 4.695364238033667
+    }
+  },
+  "config": {
+    "frames_per_seq": 5,
+    "seed": 31
+  }
+}

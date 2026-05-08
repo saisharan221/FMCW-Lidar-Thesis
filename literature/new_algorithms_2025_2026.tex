@@ -1,0 +1,117 @@
+% =====================================================================
+% Drop-in LaTeX section: New Algorithms (2024--2026) for the thesis.
+% Matches the conventions of Report.tex (booktabs tables, \cite keys,
+% no em dashes, $...$ math). Add the bib entries from
+% new_algorithms.bib to references.bib before compiling.
+% =====================================================================
+
+\subsection{Recent Algorithms (2024--2026) Beyond the Initial Survey}
+\label{sec:new_algorithms}
+
+A second-pass scan of the 2024--2026 literature surfaces six classes of algorithm that postdate the initial survey and bear directly on the three research questions of this thesis. Each class is presented with its mechanism of relevance to single-frame, per-point full velocity recovery from FMCW LiDAR, and a concrete role in either the architecture, the training scheme, or the comparison protocol of Section~\ref{Background}.
+
+\subsubsection{Probabilistic Regression Heads for the Tangential Posterior}
+\label{sec:new_algorithms:diffusion}
+
+The radial observability constraint of Eq.~\eqref{eq:doppler} renders the tangential subspace $\mathbf{v}_t$ underdetermined: the posterior $p(\mathbf{v}_t \mid v_r, \mathcal{N})$, conditioned on the radial measurement and the geometric neighbourhood $\mathcal{N}$, is in general multi-modal. Diffusion and flow-matching heads model this posterior natively. DifFlow3D~\cite{liu2024difflow3d} introduced an iterative diffusion refinement on top of a coarse correlation-based scene-flow estimator, conditioned on three flow-related features and equipped with a per-point uncertainty estimate; the design is reported as plug-and-play. DiffSF~\cite{zhang2024diffsf} pairs a transformer scene-flow backbone with a denoising diffusion process whose reverse chain is conditioned on the source and target clouds and quantifies uncertainty through the inherent randomness of the reverse process. Equivariant Flow Matching~\cite{wang2025eqflowmatching} adopts the closely related flow-matching formulation with explicit $\mathrm{SE}(3)$ equivariance, providing straight-line probability paths and faster inference than diffusion. In the single-frame FMCW setting these heads are conditioned on (point features, beam direction $\hat{\mathbf{r}}$, measured $v_r$) and supervised on the residual tangential vector $\mathbf{v}_t$, directly addressing the identifiability bound of Yoon~et~al.~\cite{yoon2023needforspeed}.
+
+\subsubsection{State Space Model Backbones}
+\label{sec:new_algorithms:mamba}
+
+Outdoor FMCW sweeps contain on the order of $10^5$ points per frame, and quadratic self-attention scales poorly. State space models (SSMs) of the Mamba family preserve global context at linear cost, an attractive property when contextual priors must reach across the scene to disambiguate the tangential component (for example, matching points of a rigid object against the road plane). MambaFlow~\cite{ma2025mambaflow} replaces the attention-based decoder of a scene-flow network with a flow-guided Mamba decoder and reports state-of-the-art accuracy on Argoverse~2 with real-time inference. FlowMamba~\cite{liu2024flowmamba} introduces an Iterative Unit based on SSMs that propagates global motion patterns first and then aggregates local cues, a global-first ordering aligned with the rigidity prior used in RQ2. PointMamba~\cite{liang2024pointmamba} and Voxel Mamba~\cite{nguyen2024voxelmamba} provide point-level and voxel-level SSM backbones suitable for ablation against MinkowskiNet and Point Transformer~V3. Mamba3D~\cite{han2024mamba3d} compensates the SSM's relative weakness on local geometry through a local norm pooling block, relevant if the ablation finds that fine geometric structure dominates over long-range context.
+
+\subsubsection{Rigidity and \texorpdfstring{$\mathrm{SE}(3)$}{SE(3)}-Equivariant Priors}
+\label{sec:new_algorithms:rigidity}
+
+Points on a rigid body share a common 6-DoF motion; constraining predictions to satisfy this property collapses the per-point tangential ambiguity to a per-cluster parameter set. The Multi-body $\mathrm{SE}(3)$ Equivariance framework of Liu~et~al.~\cite{liu2024multibodyse3} jointly performs unsupervised rigid segmentation and motion estimation, using point-level invariant features for segmentation and $\mathrm{SE}(3)$-equivariant features for motion, and offers the strongest principled extension of the local rigidity prior employed by VoteFlow~\cite{voteflow2025}. TARS~\cite{wu2025tars}, the most recent radar-side analogue, constructs a Traffic Vector Field in feature space and trains object detection and scene flow jointly, reporting gains of 23\% on a proprietary benchmark and 15\% on View-of-Delft~\cite{palffy2022vod} via traffic-level rigid motion. Both designs adapt cleanly to single-frame FMCW LiDAR by inserting an equivariance or rigidity layer between the backbone of Section~\ref{Background} and the per-point velocity head.
+
+\subsubsection{Self-Supervised Pretraining}
+\label{sec:new_algorithms:pretraining}
+
+If AevaScenes~\cite{aeva2025aevascenes} provides only sparse full-3D velocity supervision, backbone initialisation becomes a primary lever. Sonata~\cite{wu2025sonata} self-distills a Point Transformer~V3 backbone over 140k scenes and triples linear-probing accuracy on ScanNet, a result that directly translates into reduced supervision requirements when fine-tuning for downstream tasks such as velocity regression. Sonata weights are publicly released; using them as the initial parameters of the geometric backbone is a low-risk modification that supports the RQ2 analysis because Sonata explicitly studies which features are linearly decodable.
+
+\subsubsection{Implicit and Gaussian Motion Fields}
+\label{sec:new_algorithms:implicit}
+
+A continuous motion field defined over $(x, y, z, t)$ encodes velocity as the temporal gradient of an implicit field, supplying a smoothness prior for the per-point predictions. SplatFlow~\cite{sun2025splatflow} models the temporal motion of LiDAR points and Gaussians as a Neural Motion Flow Field learned without 3D bounding boxes; Mersch~et~al.~\cite{mersch2024fourdinr} fit a single 4D implicit neural representation to dynamic LiDAR scenes; CoDa-4DGS~\cite{song2025coda4dgs} adds context and deformation awareness to 4D Gaussian splatting for autonomous driving. A sibling INR head trained on multi-frame data and queried at $t = 0$ during inference is a single-frame analogue of the SplatFlow construction and acts as a self-consistency regulariser on the per-point velocity predictions.
+
+\subsubsection{Cross-Modal Motion Encoders}
+\label{sec:new_algorithms:crossmodal}
+
+MoRAL~\cite{lin2025moral} compensates dynamic-object misalignment between frames in 4D radar and LiDAR fusion using a Moving-Object-Segmentation-based motion encoder. While multi-frame in its original formulation, the MOS-based encoder ports to single-frame FMCW LiDAR as an auxiliary supervision signal that conditions the velocity head on a learned motion mask, with corresponding ablation against the unconditioned variant.
+
+\subsection{Mapping to Research Questions}
+\label{sec:new_algorithms:mapping}
+
+Table~\ref{tab:new_algorithms_rq} maps the algorithms of Section~\ref{sec:new_algorithms} to the three research questions. Each entry indicates the role the method plays: a candidate component of the architecture, an evaluation baseline, or a pretraining initialisation.
+
+\begin{table}[ht]
+\centering
+\caption{Roles of newly identified 2024--2026 algorithms with respect to the three research questions of this thesis. Component~=~candidate architectural module; Baseline~=~candidate entry in the RQ3 comparison; Init~=~candidate backbone initialisation.}
+\label{tab:new_algorithms_rq}
+\small
+\begin{tabular}{l l l}
+\toprule
+Method & RQ addressed & Role \\
+\midrule
+DifFlow3D~\cite{liu2024difflow3d}                & RQ1, RQ3 & Component, Baseline \\
+DiffSF~\cite{zhang2024diffsf}                    & RQ1, RQ3 & Component, Baseline \\
+Equivariant Flow Matching~\cite{wang2025eqflowmatching} & RQ1 & Component \\
+MambaFlow~\cite{ma2025mambaflow}                 & RQ2, RQ3 & Component, Baseline \\
+FlowMamba~\cite{liu2024flowmamba}                & RQ2 & Component \\
+PointMamba~\cite{liang2024pointmamba}            & RQ2 & Component \\
+Voxel Mamba~\cite{nguyen2024voxelmamba}          & RQ2 & Component \\
+Mamba3D~\cite{han2024mamba3d}                    & RQ2 & Component \\
+Multi-body $\mathrm{SE}(3)$~\cite{liu2024multibodyse3} & RQ2 & Component \\
+TARS~\cite{wu2025tars}                           & RQ2, RQ3 & Component, Baseline \\
+Sonata~\cite{wu2025sonata}                       & RQ2 & Init \\
+SplatFlow~\cite{sun2025splatflow}                & RQ1 & Component \\
+Mersch~et~al.~\cite{mersch2024fourdinr}          & RQ1 & Component \\
+CoDa-4DGS~\cite{song2025coda4dgs}                & RQ1 & Component \\
+MoRAL~\cite{lin2025moral}                        & RQ3 & Baseline \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Recommended Architectural Additions}
+\label{sec:new_algorithms:additions}
+
+Four modifications stand out as low-risk and high-value:
+
+\begin{enumerate}
+    \item Replace the deterministic per-point velocity regressor with a DifFlow3D-style diffusion head~\cite{liu2024difflow3d} or a flow-matching head following Wang~et~al.~\cite{wang2025eqflowmatching}. The head emits a multi-modal posterior over $\mathbf{v}_t$ and per-point uncertainty, in line with the identifiability analysis of Section~\ref{Background}.
+    \item Insert a multi-body $\mathrm{SE}(3)$ equivariance layer~\cite{liu2024multibodyse3} between the PTv3 backbone and the velocity head, enforcing the rigidity prior at object level rather than purely locally as in VoteFlow~\cite{voteflow2025}.
+    \item Initialise the backbone with Sonata weights~\cite{wu2025sonata}. The expected gain is most pronounced under low-supervision regimes, which is the operating regime of AevaScenes~\cite{aeva2025aevascenes}.
+    \item Add an implicit neural motion-field sibling head trained on multi-frame data following Mersch~et~al.~\cite{mersch2024fourdinr} and SplatFlow~\cite{sun2025splatflow}. Querying the field at $t = 0$ during inference yields a smoothness regulariser on the per-point predictions.
+\end{enumerate}
+
+\subsection{Updated Baseline Table for RQ3}
+\label{sec:new_algorithms:baselines}
+
+Table~\ref{tab:rq3_baselines_extended} extends the RQ3 comparison protocol with the strongest 2024--2026 baselines.
+
+\begin{table}[ht]
+\centering
+\caption{Extended RQ3 comparison protocol incorporating 2024--2026 baselines. SF~=~single-frame; MF~=~multi-frame; Doppler~=~uses per-point radial velocity as input; Type indicates whether the method outputs per-point velocities or only object-level estimates.}
+\label{tab:rq3_baselines_extended}
+\small
+\begin{tabular}{l l c c l}
+\toprule
+Method & Modality & Frames & Doppler & Output \\
+\midrule
+Flow4D~\cite{cho2025flow4d}                & LiDAR        & MF & No  & Per-point \\
+DeltaFlow~\cite{zhang2025deltaflow}        & LiDAR        & MF & No  & Per-point \\
+TeFlow~\cite{zhang2026teflow}              & LiDAR        & MF & No  & Per-point \\
+DoGFlow~\cite{khoche2026dogflow}           & LiDAR+Radar  & MF & Yes & Per-point \\
+MambaFlow~\cite{ma2025mambaflow}           & LiDAR        & MF & No  & Per-point \\
+DifFlow3D~\cite{liu2024difflow3d}          & LiDAR        & MF & No  & Per-point \\
+DiffSF~\cite{zhang2024diffsf}              & LiDAR        & MF & No  & Per-point \\
+TARS~\cite{wu2025tars}                     & 4D Radar     & MF & Yes & Per-point \\
+MoRAL~\cite{lin2025moral}                  & Radar+LiDAR  & MF & Yes & Per-point \\
+Dynamic-ICP~\cite{dynamicicp2025}          & FMCW LiDAR   & SF & Yes & Object-level \\
+Doppler Clustering~\cite{ding2022doppler_clustering} & FMCW LiDAR & SF & Yes & Object-level \\
+\midrule
+\textbf{Ours} & \textbf{FMCW LiDAR} & \textbf{SF} & \textbf{Yes} & \textbf{Per-point} \\
+\bottomrule
+\end{tabular}
+\end{table}
